@@ -1,5 +1,70 @@
 @{
     ViewData["Title"] = Lang.T("Search homes in Charlotte NC | Manuela Ruiz", "Buscar casas en Charlotte NC | Manuela Ruiz");
+    var langValue = Lang.IsSpanish ? "Español" : "English";
 }
-<section class="toolPageIntro"><p class="eyebrow">Charlotte · North Carolina · Rock Hill referral</p><h1>Busca según tu vida, no solamente según una lista.</h1><p>Esta búsqueda recoge lo que realmente necesitas y lo envía directamente a Manuela. Para inventario en South Carolina, la consulta se coordina con un profesional que tenga la licencia correspondiente.</p></section><section class="homeSearch fullTool" data-home-search id="home-search"><div class="toolIntro"><p class="eyebrow">Búsqueda personalizada</p><h2>Dile a Manuela qué casa estás buscando.</h2><p>Define el lugar, rango de precio y espacios indispensables. Manuela revisará inventario actual y preparará una búsqueda basada en tus prioridades; no te enviamos a otro portal inmobiliario.</p><div class="searchSummary"><small>Tu búsqueda</small><strong>Charlotte, NC · $250,000–$450,000 · 3+ beds · 2+ baths</strong></div></div><form class="searchForm" method="post" action="/leads/search">
-@Html.AntiForgeryToken()<label class="wide">Ciudad, dirección o ZIP<input name="location" required placeholder="Charlotte, 28205, Rock Hill…" value="Charlotte, NC"/></label><div class="formGrid"><label>Precio mínimo<div class="moneyInput"><span>$</span><input type="number" name="minPrice" min="0" step="5000" value="250000"/></div></label><label>Precio máximo<div class="moneyInput"><span>$</span><input type="number" name="maxPrice" min="0" step="5000" value="450000"/></div></label></div><div class="formGrid three"><label>Habitaciones<select name="beds"><option value="1">1+</option><option value="2">2+</option><option value="3" selected="">3+</option><option value="4">4+</option><option value="5">5+</option></select></label><label>Baños<select name="baths"><option value="1">1+</option><option value="1.5">1.5+</option><option value="2" selected="">2+</option><option value="2.5">2.5+</option><option value="3">3+</option><option value="4">4+</option></select></label><label>Tipo<select name="propertyType"><option selected="">House / Casa</option><option>Townhome</option><option>Condo</option><option>Land / Terreno</option><option>New construction</option><option>Investment property</option></select></label></div><div class="formGrid"><label>Nombre completo<input required="" autoComplete="name" name="name"/></label><label>Email<input required="" type="email" autoComplete="email" name="email"/></label></div><div class="formGrid"><label>Teléfono<input required="" type="tel" autoComplete="tel" name="phone"/></label><label>¿Cuándo quieres comprar?<select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Solo explorando</option></select></label></div><input type="hidden" name="language" value="@(Lang.IsSpanish ? "Español" : "English")"/><label class="consent"><input required="" type="checkbox" name="consent" value="yes"/><span>Autorizo que Manuela Ruiz me contacte sobre esta búsqueda. Para Rock Hill u otra ciudad de South Carolina, la consulta se coordinará con un profesional que tenga la licencia aplicable.</span></label><button class="btn primary">Enviar mi búsqueda a Manuela</button></form></section><section class="sourceBand"><h2>¿Qué sucede después?</h2><p>Manuela confirma presupuesto, ubicación, condición, commute y prioridades; revisa inventario actual; y conversa contigo sobre las propiedades que sí encajan. Ningún formulario sustituye la investigación de título, condición, financiamiento o disponibilidad.</p><div class="sourceLinks"><a href="/buyers">Ver el proceso de compra →</a><a href="/areas">Comparar ciudades →</a><a href="/qualify">Estimar poder de compra →</a></div></section>
+<section class="toolPageIntro">
+    <p class="eyebrow">Charlotte · North Carolina · Rock Hill referral</p>
+    <h1>@Lang.T("Search for your life, not only a list.", "Busca según tu vida, no solamente según una lista.")</h1>
+    <p>@Lang.T("This search captures what you really need and sends it directly to Manuela. For South Carolina inventory, the inquiry is coordinated with a professional who holds the applicable license.", "Esta búsqueda recoge lo que realmente necesitas y lo envía directamente a Manuela. Para inventario en South Carolina, la consulta se coordina con un profesional que tenga la licencia correspondiente.")</p>
+</section>
+<section class="homeSearch fullTool" data-home-search id="home-search">
+    <div class="toolIntro">
+        <p class="eyebrow">@Lang.T("Personalized search", "Búsqueda personalizada")</p>
+        <h2>@Lang.T("Tell Manuela what home you're looking for.", "Dile a Manuela qué casa estás buscando.")</h2>
+        <p>@Lang.T("Define the place, price range and must-have spaces. Manuela will review current inventory and prepare a search based on your priorities — we don't send you to another real estate portal.", "Define el lugar, rango de precio y espacios indispensables. Manuela revisará inventario actual y preparará una búsqueda basada en tus prioridades; no te enviamos a otro portal inmobiliario.")</p>
+        <div class="searchSummary">
+            <small>@Lang.T("Your search", "Tu búsqueda")</small>
+            <strong>Charlotte, NC · $250,000–$450,000 · 3+ beds · 2+ baths</strong>
+        </div>
+    </div>
+    <form class="searchForm" method="post" action="/leads/search">
+        @Html.AntiForgeryToken()
+        <label class="wide">@Lang.T("City, address or ZIP", "Ciudad, dirección o ZIP")
+            <input name="location" required placeholder="Charlotte, 28205, Rock Hill…" value="Charlotte, NC" />
+        </label>
+        <div class="formGrid">
+            <label>@Lang.T("Minimum price", "Precio mínimo")
+                <div class="moneyInput"><span>$</span><input type="number" name="minPrice" min="0" step="5000" value="250000" /></div>
+            </label>
+            <label>@Lang.T("Maximum price", "Precio máximo")
+                <div class="moneyInput"><span>$</span><input type="number" name="maxPrice" min="0" step="5000" value="450000" /></div>
+            </label>
+        </div>
+        <div class="formGrid three">
+            <label>@Lang.T("Beds", "Habitaciones")
+                <select name="beds"><option value="1">1+</option><option value="2">2+</option><option value="3" selected>3+</option><option value="4">4+</option><option value="5">5+</option></select>
+            </label>
+            <label>@Lang.T("Baths", "Baños")
+                <select name="baths"><option value="1">1+</option><option value="1.5">1.5+</option><option value="2" selected>2+</option><option value="2.5">2.5+</option><option value="3">3+</option><option value="4">4+</option></select>
+            </label>
+            <label>@Lang.T("Type", "Tipo")
+                <select name="propertyType"><option selected>House / Casa</option><option>Townhome</option><option>Condo</option><option>Land / Terreno</option><option>New construction</option><option>Investment property</option></select>
+            </label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Full name", "Nombre completo")<input required autocomplete="name" name="name" /></label>
+            <label>Email<input required type="email" autocomplete="email" name="email" /></label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Phone", "Teléfono")<input required type="tel" autocomplete="tel" name="phone" /></label>
+            <label>@Lang.T("When do you want to buy?", "¿Cuándo quieres comprar?")
+                <select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>@Lang.T("Just exploring", "Solo explorando")</option></select>
+            </label>
+        </div>
+        <input type="hidden" name="language" value="@langValue" />
+        <label class="consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>@Lang.T("I authorize Manuela Ruiz to contact me about this search. For Rock Hill or another South Carolina city, the inquiry will be coordinated with a professional who holds the applicable license.", "Autorizo que Manuela Ruiz me contacte sobre esta búsqueda. Para Rock Hill u otra ciudad de South Carolina, la consulta se coordinará con un profesional que tenga la licencia aplicable.")</span>
+        </label>
+        <button class="btn primary">@Lang.T("Send my search to Manuela", "Enviar mi búsqueda a Manuela")</button>
+    </form>
+</section>
+<section class="sourceBand">
+    <h2>@Lang.T("What happens next?", "¿Qué sucede después?")</h2>
+    <p>@Lang.T("Manuela confirms budget, location, condition, commute and priorities; reviews current inventory; and talks with you about homes that fit. No form replaces title, condition, financing or availability research.", "Manuela confirma presupuesto, ubicación, condición, commute y prioridades; revisa inventario actual; y conversa contigo sobre las propiedades que sí encajan. Ningún formulario sustituye la investigación de título, condición, financiamiento o disponibilidad.")</p>
+    <div class="sourceLinks">
+        <a href="/buyers">@Lang.T("See the buying process →", "Ver el proceso de compra →")</a>
+        <a href="/areas">@Lang.T("Compare cities →", "Comparar ciudades →")</a>
+        <a href="/qualify">@Lang.T("Estimate buying power →", "Estimar poder de compra →")</a>
+    </div>
+</section>

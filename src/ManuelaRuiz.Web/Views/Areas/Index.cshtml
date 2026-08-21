@@ -2,6 +2,112 @@
     ViewData["Title"] = Lang.T("Charlotte and nearby cities | Service areas | Manuela Ruiz", "Charlotte y ciudades cercanas | Service areas | Manuela Ruiz");
 }
 <div class="detailPage">
-<section class="detailHero"><p class="eyebrow">Charlotte y North Carolina · Charlotte NC</p><h1>Una región. Muchas decisiones distintas.</h1><p>Charlotte es la base de Manuela y el centro de una región de 16 condados. Evalúa oportunidades aproximadamente dentro de dos horas de Charlotte; consultas para Raleigh y otras zonas de North Carolina pueden coordinarse con el brokerage y profesionales de su red, según disponibilidad y representación aplicable.</p><div class="actions"><a class="btn primary" href="#consult">Preparar mi consulta</a><a class="btn ghost" href="tel:+17048308486">704-830-8486</a></div></section><section class="detailContext"><div><p class="eyebrow">Cómo te ayuda Manuela</p><h2>Cobertura clara en las Carolinas</h2><p>Manuela está licenciada en North Carolina y trabaja desde Charlotte. Atiende la región metropolitana y evalúa oportunidades aproximadamente dentro de dos horas. Rock Hill, Fort Mill y otras consultas de South Carolina se coordinan o refieren con un profesional que tenga licencia activa en ese estado.</p></div><ul><li><span>✓</span>Charlotte, Matthews, Mint Hill y Pineville</li><li><span>✓</span>Concord, Kannapolis y Lake Norman</li><li><span>✓</span>Belmont, Gastonia, Mount Holly y Shelby</li><li><span>✓</span>Rock Hill y Fort Mill mediante representación SC</li></ul></section><section class="detailSteps"><p class="eyebrow">Proceso paso a paso</p><h2>Qué hacemos y por qué importa.</h2><div><article><span>01</span><h3>Charlotte</h3><p>Núcleo urbano y financiero; compara inventario actual, commute y costo total antes de decidir.</p></article><article><span>02</span><h3>Lake Norman</h3><p>Huntersville, Cornelius, Davidson, Mooresville y Denver: compara commute, lago, inventario y condado.</p></article><article><span>03</span><h3>Norte y noreste</h3><p>Concord, Kannapolis y Harrisburg ofrecen combinaciones distintas de nueva construcción y acceso regional.</p></article><article><span>04</span><h3>Sur y Union County</h3><p>Matthews, Mint Hill, Indian Trail, Monroe y Pineville requieren comparar commute y costos totales.</p></article><article><span>05</span><h3>Oeste y Gaston</h3><p>Gastonia, Belmont, Mount Holly, Bessemer City y Shelby presentan inventario y distancias diferentes.</p></article><article><span>06</span><h3>Raleigh y otras zonas de NC</h3><p>El brokerage puede coordinar apoyo en otras áreas de North Carolina. Manuela confirma quién representará, disponibilidad y alcance antes de avanzar.</p></article></div></section><section class="detailCheck"><div><p class="eyebrow">Prepárate</p><h2>Trae estas respuestas a la conversación.</h2></div><ul><li>✓ Tiempo real de commute a la hora necesaria</li><li>✓ Impuestos, seguro y HOA</li><li>✓ Inventario y condición en tu presupuesto</li><li>✓ Fuentes oficiales para escuelas y servicios</li></ul></section><section class="detailLinks"><p class="eyebrow">Herramientas y próximos pasos</p><a href="/search">Buscar por ZIP, precio, habitaciones y baños →</a><a href="/qualify">Estimar poder de compra →</a><a href="https://www.redfin.com/city/3105/NC/Charlotte/housing-market" target="_blank" rel="noreferrer">Mercado de Charlotte: Redfin →</a><a href="https://www.redfin.com/city/15797/SC/Rock-Hill/housing-market" target="_blank" rel="noreferrer">Mercado de Rock Hill: Redfin →</a><a href="https://charlotteregion.com/regional-data/" target="_blank" rel="noreferrer">Datos regionales oficiales →</a></section><section class="detailFaq"><p class="eyebrow">FAQ</p><h2>Respuestas abiertas y directas.</h2><div class="faqOpen"><article><h3>¿Cuál es el precio mínimo?</h3><p>No existe un mínimo estable. Depende del inventario activo, tipo, condición y ubicación. Usamos datos fechados y búsquedas actuales.</p></article><article><h3>¿Pueden ayudar en Raleigh?</h3><p>La consulta puede coordinarse con Guerra &amp; Associates Realty LLC y su red de North Carolina. La representación y disponibilidad se confirman para el caso específico.</p></article><article><h3>¿Y South Carolina?</h3><p>La licencia publicada de Manuela es de North Carolina. Consultas de South Carolina se orientan o refieren mediante un profesional con licencia aplicable.</p></article></div></section><section class="detailConsult" id="consult"><div><p class="eyebrow">Consulta bilingüe</p><h2>Cuéntale a Manuela dónde estás hoy.</h2><p>El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.</p></div><form class="intake" method="post" action="/leads/intake">
-@Html.AntiForgeryToken()<input type="hidden" name="source" value="areas"/><input type="hidden" name="goal" value="areas"/><label>Nombre completo<input required="" autoComplete="name" name="name"/></label><div class="formGrid"><label>Email<input type="email" required="" autoComplete="email" name="email"/></label><label>Teléfono<input type="tel" required="" autoComplete="tel" name="phone"/></label></div><div class="formGrid"><label>Idioma<select name="language"><option>Español</option><option>English</option></select></label><label>Plazo<select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Explorando</option></select></label></div><div class="formGrid"><label>Documento financiero<select name="financing"><option>Social Security</option><option>ITIN</option><option>No sé</option></select></label><label>Presupuesto<select name="budget"><option>$150k–$250k</option><option>$250k–$350k</option><option>$350k–$500k</option><option>$500k–$750k</option><option>$750k+</option><option>Necesito calcularlo</option></select></label></div><label>Ciudad o zona objetivo<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area"/></label><label>Lo más importante que Manuela debe saber<textarea name="notes" rows="4" placeholder="Trabajo, familia, condición, espacios, fecha o preocupación principal…"></textarea></label><label class="consent"><input required="" type="checkbox" name="consent" value="yes"/><span>Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.</span></label><button class="btn primary">Enviar consulta</button></form></section>
+<section class="detailHero">
+    <p class="eyebrow">@Lang.T("Charlotte and North Carolina · Charlotte NC", "Charlotte y North Carolina · Charlotte NC")</p>
+    <h1>@Lang.T("One region. Many different decisions.", "Una región. Muchas decisiones distintas.")</h1>
+    <p>@Lang.T("Charlotte is Manuela's base and the center of a 16-county region. She evaluates opportunities roughly within two hours of Charlotte; inquiries for Raleigh and other North Carolina areas can be coordinated with the brokerage and professionals in her network, subject to availability and applicable representation.", "Charlotte es la base de Manuela y el centro de una región de 16 condados. Evalúa oportunidades aproximadamente dentro de dos horas de Charlotte; consultas para Raleigh y otras zonas de North Carolina pueden coordinarse con el brokerage y profesionales de su red, según disponibilidad y representación aplicable.")</p>
+    <div class="actions">
+        <a class="btn primary" href="#consult">@Lang.T("Prepare my consultation", "Preparar mi consulta")</a>
+        <a class="btn ghost" href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
+    </div>
+</section>
+<section class="detailContext">
+    <div>
+        <p class="eyebrow">@Lang.T("How Manuela helps you", "Cómo te ayuda Manuela")</p>
+        <h2>@Lang.T("Clear coverage in the Carolinas", "Cobertura clara en las Carolinas")</h2>
+        <p>@Lang.T("Manuela is licensed in North Carolina and works from Charlotte. She serves the metro region and evaluates opportunities roughly within two hours. Rock Hill, Fort Mill and other South Carolina inquiries are coordinated or referred with a professional who holds an active license in that state.", "Manuela está licenciada en North Carolina y trabaja desde Charlotte. Atiende la región metropolitana y evalúa oportunidades aproximadamente dentro de dos horas. Rock Hill, Fort Mill y otras consultas de South Carolina se coordinan o refieren con un profesional que tenga licencia activa en ese estado.")</p>
+    </div>
+    <ul>
+        <li><span>✓</span>Charlotte, Matthews, Mint Hill y Pineville</li>
+        <li><span>✓</span>Concord, Kannapolis y Lake Norman</li>
+        <li><span>✓</span>Belmont, Gastonia, Mount Holly y Shelby</li>
+        <li><span>✓</span>@Lang.T("Rock Hill and Fort Mill through SC representation", "Rock Hill y Fort Mill mediante representación SC")</li>
+    </ul>
+</section>
+<section class="detailSteps">
+    <p class="eyebrow">@Lang.T("Step-by-step process", "Proceso paso a paso")</p>
+    <h2>@Lang.T("What we do and why it matters.", "Qué hacemos y por qué importa.")</h2>
+    <div>
+        <article><span>01</span><h3>Charlotte</h3><p>@Lang.T("Urban and financial core; compare current inventory, commute and total cost before deciding.", "Núcleo urbano y financiero; compara inventario actual, commute y costo total antes de decidir.")</p></article>
+        <article><span>02</span><h3>Lake Norman</h3><p>@Lang.T("Huntersville, Cornelius, Davidson, Mooresville and Denver: compare commute, lake, inventory and county.", "Huntersville, Cornelius, Davidson, Mooresville y Denver: compara commute, lago, inventario y condado.")</p></article>
+        <article><span>03</span><h3>@Lang.T("North and northeast", "Norte y noreste")</h3><p>@Lang.T("Concord, Kannapolis and Harrisburg offer different mixes of new construction and regional access.", "Concord, Kannapolis y Harrisburg ofrecen combinaciones distintas de nueva construcción y acceso regional.")</p></article>
+        <article><span>04</span><h3>@Lang.T("South and Union County", "Sur y Union County")</h3><p>@Lang.T("Matthews, Mint Hill, Indian Trail, Monroe and Pineville require comparing commute and total costs.", "Matthews, Mint Hill, Indian Trail, Monroe y Pineville requieren comparar commute y costos totales.")</p></article>
+        <article><span>05</span><h3>@Lang.T("West and Gaston", "Oeste y Gaston")</h3><p>@Lang.T("Gastonia, Belmont, Mount Holly, Bessemer City and Shelby present different inventory and distances.", "Gastonia, Belmont, Mount Holly, Bessemer City y Shelby presentan inventario y distancias diferentes.")</p></article>
+        <article><span>06</span><h3>@Lang.T("Raleigh and other NC areas", "Raleigh y otras zonas de NC")</h3><p>@Lang.T("The brokerage can coordinate support in other North Carolina areas. Manuela confirms who will represent, availability and scope before moving forward.", "El brokerage puede coordinar apoyo en otras áreas de North Carolina. Manuela confirma quién representará, disponibilidad y alcance antes de avanzar.")</p></article>
+    </div>
+</section>
+<section class="detailCheck">
+    <div>
+        <p class="eyebrow">@Lang.T("Get ready", "Prepárate")</p>
+        <h2>@Lang.T("Bring these answers to the conversation.", "Trae estas respuestas a la conversación.")</h2>
+    </div>
+    <ul>
+        <li>✓ @Lang.T("Real commute time at the hour you need", "Tiempo real de commute a la hora necesaria")</li>
+        <li>✓ @Lang.T("Taxes, insurance and HOA", "Impuestos, seguro y HOA")</li>
+        <li>✓ @Lang.T("Inventory and condition in your budget", "Inventario y condición en tu presupuesto")</li>
+        <li>✓ @Lang.T("Official sources for schools and services", "Fuentes oficiales para escuelas y servicios")</li>
+    </ul>
+</section>
+<section class="detailLinks">
+    <p class="eyebrow">@Lang.T("Tools and next steps", "Herramientas y próximos pasos")</p>
+    <a href="/search">@Lang.T("Search by ZIP, price, beds and baths →", "Buscar por ZIP, precio, habitaciones y baños →")</a>
+    <a href="/qualify">@Lang.T("Estimate buying power →", "Estimar poder de compra →")</a>
+    <a href="https://www.redfin.com/city/3105/NC/Charlotte/housing-market" target="_blank" rel="noreferrer">@Lang.T("Charlotte market: Redfin →", "Mercado de Charlotte: Redfin →")</a>
+    <a href="https://www.redfin.com/city/15797/SC/Rock-Hill/housing-market" target="_blank" rel="noreferrer">@Lang.T("Rock Hill market: Redfin →", "Mercado de Rock Hill: Redfin →")</a>
+    <a href="https://charlotteregion.com/regional-data/" target="_blank" rel="noreferrer">@Lang.T("Official regional data →", "Datos regionales oficiales →")</a>
+</section>
+<section class="detailFaq">
+    <p class="eyebrow">FAQ</p>
+    <h2>@Lang.T("Open, direct answers.", "Respuestas abiertas y directas.")</h2>
+    <div class="faqOpen">
+        <article><h3>@Lang.T("What is the minimum price?", "¿Cuál es el precio mínimo?")</h3><p>@Lang.T("There is no stable minimum. It depends on active inventory, type, condition and location. We use dated data and current searches.", "No existe un mínimo estable. Depende del inventario activo, tipo, condición y ubicación. Usamos datos fechados y búsquedas actuales.")</p></article>
+        <article><h3>@Lang.T("Can you help in Raleigh?", "¿Pueden ayudar en Raleigh?")</h3><p>@Lang.T("The inquiry can be coordinated with Guerra & Associates Realty LLC and its North Carolina network. Representation and availability are confirmed for the specific case.", "La consulta puede coordinarse con Guerra & Associates Realty LLC y su red de North Carolina. La representación y disponibilidad se confirman para el caso específico.")</p></article>
+        <article><h3>@Lang.T("What about South Carolina?", "¿Y South Carolina?")</h3><p>@Lang.T("Manuela's published license is for North Carolina. South Carolina inquiries are oriented or referred through a professional with the applicable license.", "La licencia publicada de Manuela es de North Carolina. Consultas de South Carolina se orientan o refieren mediante un profesional con licencia aplicable.")</p></article>
+    </div>
+</section>
+<section class="detailConsult" id="consult">
+    <div>
+        <p class="eyebrow">@Lang.T("Bilingual consultation", "Consulta bilingüe")</p>
+        <h2>@Lang.T("Tell Manuela where you are today.", "Cuéntale a Manuela dónde estás hoy.")</h2>
+        <p>@Lang.T("The form identifies your situation so follow-up is specific. It is a real estate consultation, not a credit application.", "El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.")</p>
+    </div>
+    <form class="intake" method="post" action="/leads/intake">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="source" value="areas" />
+        <input type="hidden" name="goal" value="areas" />
+        <label>@Lang.T("Full name", "Nombre completo")<input required autocomplete="name" name="name" /></label>
+        <div class="formGrid">
+            <label>Email<input type="email" required autocomplete="email" name="email" /></label>
+            <label>@Lang.T("Phone", "Teléfono")<input type="tel" required autocomplete="tel" name="phone" /></label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Language", "Idioma")
+                <select name="language">
+                    @if (Lang.IsSpanish) { <option selected>Español</option><option>English</option> }
+                    else { <option>Español</option><option selected>English</option> }
+                </select>
+            </label>
+            <label>@Lang.T("Timeline", "Plazo")
+                <select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>@Lang.T("Exploring", "Explorando")</option></select>
+            </label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Financing document", "Documento financiero")
+                <select name="financing"><option>Social Security</option><option>ITIN</option><option>@Lang.T("Not sure", "No sé")</option></select>
+            </label>
+            <label>@Lang.T("Budget", "Presupuesto")
+                <select name="budget"><option>$150k–$250k</option><option>$250k–$350k</option><option>$350k–$500k</option><option>$500k–$750k</option><option>$750k+</option><option>@Lang.T("I need to calculate it", "Necesito calcularlo")</option></select>
+            </label>
+        </div>
+        <label>@Lang.T("Target city or area", "Ciudad o zona objetivo")<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area" /></label>
+        <label>@Lang.T("Most important thing Manuela should know", "Lo más importante que Manuela debe saber")
+            <textarea name="notes" rows="4" placeholder="@Lang.T("Work, family, condition, spaces, date or main concern…", "Trabajo, familia, condición, espacios, fecha o preocupación principal…")"></textarea>
+        </label>
+        <label class="consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>@Lang.T("I authorize Manuela Ruiz to contact me. South Carolina inquiries are coordinated with a professional who holds the applicable license.", "Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.")</span>
+        </label>
+        <button class="btn primary">@Lang.T("Send consultation", "Enviar consulta")</button>
+    </form>
+</section>
 </div>

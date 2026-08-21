@@ -1,7 +1,104 @@
 @{
     ViewData["Title"] = Lang.T("How much house can I afford in Charlotte? | Manuela Ruiz", "¿Cuánta casa puedo comprar en Charlotte? | Manuela Ruiz");
+    var langValue = Lang.IsSpanish ? "Español" : "English";
 }
-<section class="toolPageIntro"><p class="eyebrow">Preparación financiera · Sin credit pull</p><h1>Calcula un punto de partida antes de pedir una preaprobación.</h1><p>Una herramienta clara para organizar preguntas sobre ingresos, deudas, fondos, ITIN o Social Security. Solamente un lender autorizado puede verificar documentos y aprobar un préstamo.</p></section><section class="qualifyTool fullTool" data-qualify-calc id="buying-power"><div class="qualifyInputs"><p class="eyebrow">Estimador educativo de poder de compra</p><h2>¿Qué rango de casa podrías conversar con un lender?</h2><p>Ajusta los números. El cálculo combina ingresos, deudas, fondos disponibles, tasa supuesta y un escenario de deuda total. No revisa crédito ni aprueba préstamos.</p><div class="inputDeck"><div class="formGrid"><label>Ingreso bruto mensual del hogar<div class="moneyInput"><span>$</span><input type="number" min="0" step="100" value="7000"/></div></label><label>Deudas mensuales<div class="moneyInput"><span>$</span><input type="number" min="0" step="25" value="650"/></div></label></div><div class="formGrid"><label>Fondos disponibles para comprar<div class="moneyInput"><span>$</span><input type="number" min="0" step="500" value="25000"/></div></label><label>Pago inicial supuesto<select><option value="3">3%</option><option value="3.5">3.5%</option><option value="5" selected="">5%</option><option value="10">10%</option><option value="20">20%</option></select></label></div><div class="formGrid"><label>Tasa supuesta<div class="suffixInput"><input type="number" min="1" max="15" step=".05" value="6.5"/><span>%</span></div></label><label>Escenario de deuda total<select><option value="36" selected="">36% — conservador</option><option value="43">43% — para conversar</option><option value="45">45% — revisión adicional</option></select></label></div><div class="formGrid"><label>Historial actual de trabajo/negocio<select><option selected="">2+ years</option><option>1–2 years</option><option>New job / Nuevo empleo</option><option>Self-employed / Negocio propio</option></select></label><label>Documento para explorar<select><option selected="">Social Security</option><option>ITIN</option><option>No estoy seguro/a</option></select></label></div><label>HOA / mes<div class="moneyInput"><span>$</span><input type="number" min="0" step="10" value="0"/></div></label></div></div><div class="qualifyResult" aria-live="polite"><p class="eyebrow">Rango inicial estimado</p><strong>$204,644 – $240,758</strong><span>Precio ilustrativo de vivienda</span><div class="resultFacts"><p><b>$1,870</b>Vivienda mensual máxima dentro del escenario</p><p><b>$12,038</b>Pago inicial aproximado al máximo</p><p><b>$7,223</b>Reserva ilustrativa para cierre (3%)</p></div><div class="limitNote income"><b>Hoy limita más la relación ingreso/deuda.</b><p>Eso indica qué pregunta llevar primero al lender. Programas, crédito, reservas, impuestos, seguro, HOA y documentación pueden cambiar el resultado.</p></div><details><summary>¿Cómo se calcula?</summary><p>Usa un escenario de DTI total de 36%, resta deudas y HOA, estima principal/interés a 30 años, impuestos de 1.0%, seguro de 0.45%, posible PMI y reserva de cierre de 3%. Son supuestos editables, no términos de un lender.</p></details><p class="privacyNote">Privacidad: tus ingresos, deudas y fondos se calculan solamente en tu navegador y no se envían ni guardan.</p><form class="resultLead" method="post" action="/leads/qualify">
-@Html.AntiForgeryToken()
-<input type="hidden" name="rangeLow" data-range-low />
-<input type="hidden" name="rangeHigh" data-range-high /><h3>Enviar solamente mi rango a Manuela</h3><div class="formGrid"><label>Nombre<input required="" name="name"/></label><label>Email<input required="" type="email" name="email"/></label></div><div class="formGrid"><label>Teléfono<input required="" type="tel" name="phone"/></label><label>Zona<input placeholder="Charlotte, Concord, Rock Hill…" name="area"/></label></div><div class="formGrid"><label>Crédito estimado<select name="credit"><option>760+</option><option>700–759</option><option>660–699</option><option>620–659</option><option>&lt;620</option><option>No sé</option></select></label><label>Plazo<select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Preparándome</option></select></label></div><input type="hidden" name="language" value="@(Lang.IsSpanish ? "Español" : "English")"/><label class="consent"><input required="" type="checkbox" name="consent" value="yes"/><span>Autorizo que Manuela me contacte. Entiendo que esto no es una solicitud ni una preaprobación hipotecaria.</span></label><button class="btn primary">Enviar mi rango</button></form></div></section><section class="sourceBand"><p class="eyebrow">Cómo interpretar el resultado</p><h2>Una estimación ayuda a conversar. Una preaprobación requiere verificación.</h2><p>Fannie Mae define el DTI como obligaciones mensuales totales divididas por ingreso mensual utilizado para calificar; sus límites dependen del tipo de underwriting y otros requisitos. El CFPB recuerda que una preaprobación sigue siendo tentativa y que el comprador debe decidir qué pago resulta cómodo para su vida.</p><div class="sourceLinks"><a href="https://selling-guide.fanniemae.com/sel/b3-6-02/debt-income-ratios" target="_blank" rel="noreferrer">Fannie Mae: DTI →</a><a href="https://www.consumerfinance.gov/owning-a-home/explore/get-a-preapproval-letter/" target="_blank" rel="noreferrer">CFPB: preapproval →</a><a href="https://www.consumerfinance.gov/consumer-tools/mortgages/ready-to-buy-a-home/" target="_blank" rel="noreferrer">CFPB: preparación →</a></div></section>
+<section class="toolPageIntro">
+    <p class="eyebrow">@Lang.T("Financial preparation · No credit pull", "Preparación financiera · Sin credit pull")</p>
+    <h1>@Lang.T("Calculate a starting point before asking for pre-approval.", "Calcula un punto de partida antes de pedir una preaprobación.")</h1>
+    <p>@Lang.T("A clear tool to organize questions about income, debts, funds, ITIN or Social Security. Only an authorized lender can verify documents and approve a loan.", "Una herramienta clara para organizar preguntas sobre ingresos, deudas, fondos, ITIN o Social Security. Solamente un lender autorizado puede verificar documentos y aprobar un préstamo.")</p>
+</section>
+<section class="qualifyTool fullTool" data-qualify-calc id="buying-power">
+    <div class="qualifyInputs">
+        <p class="eyebrow">@Lang.T("Educational buying-power estimator", "Estimador educativo de poder de compra")</p>
+        <h2>@Lang.T("What home range could you discuss with a lender?", "¿Qué rango de casa podrías conversar con un lender?")</h2>
+        <p>@Lang.T("Adjust the numbers. The calc combines income, debts, available funds, assumed rate and a total-debt scenario. It does not pull credit or approve loans.", "Ajusta los números. El cálculo combina ingresos, deudas, fondos disponibles, tasa supuesta y un escenario de deuda total. No revisa crédito ni aprueba préstamos.")</p>
+        <div class="inputDeck">
+            <div class="formGrid">
+                <label>@Lang.T("Gross monthly household income", "Ingreso bruto mensual del hogar")
+                    <div class="moneyInput"><span>$</span><input type="number" min="0" step="100" value="7000" /></div>
+                </label>
+                <label>@Lang.T("Monthly debts", "Deudas mensuales")
+                    <div class="moneyInput"><span>$</span><input type="number" min="0" step="25" value="650" /></div>
+                </label>
+            </div>
+            <div class="formGrid">
+                <label>@Lang.T("Funds available to buy", "Fondos disponibles para comprar")
+                    <div class="moneyInput"><span>$</span><input type="number" min="0" step="500" value="25000" /></div>
+                </label>
+                <label>@Lang.T("Assumed down payment", "Pago inicial supuesto")
+                    <select><option value="3">3%</option><option value="3.5">3.5%</option><option value="5" selected>5%</option><option value="10">10%</option><option value="20">20%</option></select>
+                </label>
+            </div>
+            <div class="formGrid">
+                <label>@Lang.T("Assumed rate", "Tasa supuesta")
+                    <div class="suffixInput"><input type="number" min="1" max="15" step=".05" value="6.5" /><span>%</span></div>
+                </label>
+                <label>@Lang.T("Total debt scenario", "Escenario de deuda total")
+                    <select>
+                        <option value="36" selected>36% — @Lang.T("conservative", "conservador")</option>
+                        <option value="43">43% — @Lang.T("to discuss", "para conversar")</option>
+                        <option value="45">45% — @Lang.T("extra review", "revisión adicional")</option>
+                    </select>
+                </label>
+            </div>
+            <div class="formGrid">
+                <label>@Lang.T("Current job/business history", "Historial actual de trabajo/negocio")
+                    <select><option selected>2+ years</option><option>1–2 years</option><option>New job / Nuevo empleo</option><option>Self-employed / Negocio propio</option></select>
+                </label>
+                <label>@Lang.T("Document to explore", "Documento para explorar")
+                    <select><option selected>Social Security</option><option>ITIN</option><option>@Lang.T("Not sure", "No estoy seguro/a")</option></select>
+                </label>
+            </div>
+            <label>HOA / @Lang.T("month", "mes")
+                <div class="moneyInput"><span>$</span><input type="number" min="0" step="10" value="0" /></div>
+            </label>
+        </div>
+    </div>
+    <div class="qualifyResult" aria-live="polite">
+        <p class="eyebrow">@Lang.T("Estimated starting range", "Rango inicial estimado")</p>
+        <strong>$204,644 – $240,758</strong>
+        <span>@Lang.T("Illustrative home price", "Precio ilustrativo de vivienda")</span>
+        <div class="resultFacts">
+            <p><b>$1,870</b>@Lang.T("Max monthly housing within scenario", "Vivienda mensual máxima dentro del escenario")</p>
+            <p><b>$12,038</b>@Lang.T("Approximate down payment at the max", "Pago inicial aproximado al máximo")</p>
+            <p><b>$7,223</b>@Lang.T("Illustrative closing reserve (3%)", "Reserva ilustrativa para cierre (3%)")</p>
+        </div>
+        <div class="limitNote income">
+            <b>@Lang.T("Today the income/debt ratio limits more.", "Hoy limita más la relación ingreso/deuda.")</b>
+            <p>@Lang.T("That shows which question to take to the lender first. Programs, credit, reserves, taxes, insurance, HOA and documents can change the result.", "Eso indica qué pregunta llevar primero al lender. Programas, crédito, reservas, impuestos, seguro, HOA y documentación pueden cambiar el resultado.")</p>
+        </div>
+        <details>
+            <summary>@Lang.T("How is it calculated?", "¿Cómo se calcula?")</summary>
+            <p>@Lang.T("Uses a 36% total DTI scenario, subtracts debts and HOA, estimates principal/interest over 30 years, 1.0% taxes, 0.45% insurance, possible PMI and a 3% closing reserve. Editable assumptions — not lender terms.", "Usa un escenario de DTI total de 36%, resta deudas y HOA, estima principal/interés a 30 años, impuestos de 1.0%, seguro de 0.45%, posible PMI y reserva de cierre de 3%. Son supuestos editables, no términos de un lender.")</p>
+        </details>
+        <p class="privacyNote">@Lang.T("Privacy: your income, debts and funds are calculated only in your browser and are not sent or stored.", "Privacidad: tus ingresos, deudas y fondos se calculan solamente en tu navegador y no se envían ni guardan.")</p>
+        <form class="resultLead" method="post" action="/leads/qualify">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="rangeLow" data-range-low />
+            <input type="hidden" name="rangeHigh" data-range-high />
+            <h3>@Lang.T("Send only my range to Manuela", "Enviar solamente mi rango a Manuela")</h3>
+            <div class="formGrid">
+                <label>@Lang.T("Name", "Nombre")<input required name="name" /></label>
+                <label>Email<input required type="email" name="email" /></label>
+            </div>
+            <div class="formGrid">
+                <label>@Lang.T("Phone", "Teléfono")<input required type="tel" name="phone" /></label>
+                <label>@Lang.T("Area", "Zona")<input placeholder="Charlotte, Concord, Rock Hill…" name="area" /></label>
+            </div>
+            <div class="formGrid">
+                <label>@Lang.T("Estimated credit", "Crédito estimado")
+                    <select name="credit"><option>760+</option><option>700–759</option><option>660–699</option><option>620–659</option><option>&lt;620</option><option>@Lang.T("Not sure", "No sé")</option></select>
+                </label>
+                <label>@Lang.T("Timeline", "Plazo")
+                    <select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>@Lang.T("Getting ready", "Preparándome")</option></select>
+                </label>
+            </div>
+            <input type="hidden" name="language" value="@langValue" />
+            <label class="consent">
+                <input required type="checkbox" name="consent" value="yes" />
+                <span>@Lang.T("I authorize Manuela to contact me. I understand this is not a mortgage application or pre-approval.", "Autorizo que Manuela me contacte. Entiendo que esto no es una solicitud ni una preaprobación hipotecaria.")</span>
+            </label>
+            <button class="btn primary">@Lang.T("Send my range", "Enviar mi rango")</button>
+        </form>
+    </div>
+</section>

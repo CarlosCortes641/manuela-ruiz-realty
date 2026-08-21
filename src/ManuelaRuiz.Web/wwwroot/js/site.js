@@ -73,10 +73,12 @@
       const insurance = (price * 0.0045) / 12;
       const pmi = downPct < 20 ? (loan * 0.007) / 12 : 0;
       const total = pi + tax + insurance + pmi + hoa;
+      const loanLabel = root.dataset.loanLabel || "estimated loan";
+      const assumedLabel = root.dataset.assumedLabel || "assumed";
       totalStrong.innerHTML = `${money(total)}<i>/mo</i>`;
-      if (totalSpan) totalSpan.textContent = `${money(loan)} préstamo estimado · ${rate.toFixed(2)}%`;
+      if (totalSpan) totalSpan.textContent = `${money(loan)} ${loanLabel} · ${rate.toFixed(2)}%`;
       if (downSmall) downSmall.textContent = money(down);
-      if (rateSmall) rateSmall.textContent = `${rate.toFixed(2)}% supuesto`;
+      if (rateSmall) rateSmall.textContent = `${rate.toFixed(2)}% ${assumedLabel}`;
       const rows = breakdown.querySelectorAll("span");
       const vals = [pi, tax, insurance, pmi, hoa];
       rows.forEach((row, i) => {

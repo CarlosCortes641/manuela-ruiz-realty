@@ -2,6 +2,103 @@
     ViewData["Title"] = Lang.T("Inspections and local resources in Charlotte | Manuela Ruiz", "Inspecciones y recursos locales en Charlotte | Manuela Ruiz");
 }
 <div class="detailPage">
-<section class="detailHero"><p class="eyebrow">Red local independiente · Charlotte NC</p><h1>La inspección general es el comienzo de las preguntas, no siempre el final.</h1><p>Manuela puede coordinar recursos cuando aparecen dudas sobre techo, HVAC, water heater, estructura, humedad, electricidad, reparaciones, seguro o mudanza. Cada empresa es independiente y el cliente conserva la decisión.</p><div class="actions"><a class="btn primary" href="#consult">Preparar mi consulta</a><a class="btn ghost" href="tel:+17048308486">704-830-8486</a></div></section><section class="detailContext"><div><p class="eyebrow">Cómo te ayuda Manuela</p><h2>La inspección general no tiene que ser la última pregunta</h2><p>Cuando aparece una duda material, Manuela puede ayudar a conectar especialistas independientes para entender alcance, costo y opciones antes de decidir. El cliente conserva siempre el derecho de escoger y verificar proveedores.</p></div><ul><li><span>✓</span>Safe Project Solutions: sistemas y reparaciones</li><li><span>✓</span>Majestic Roofing: techo y documentación</li><li><span>✓</span>Carolinas Coverage: conversación de seguro</li><li><span>✓</span>Alcance, licencia, garantía y precio por escrito</li></ul></section><section class="detailSteps"><p class="eyebrow">Proceso paso a paso</p><h2>Qué hacemos y por qué importa.</h2><div><article><span>01</span><h3>Inspección general</h3><p>Un home inspector documenta condiciones visibles dentro de su alcance.</p></article><article><span>02</span><h3>Especialista cuando aplica</h3><p>Hallazgos de HVAC, techo, estructura, plomería o electricidad pueden necesitar evaluación separada.</p></article><article><span>03</span><h3>Safe Project Solutions</h3><p>Servicios de propiedad, reparaciones, renovaciones, estimados con fotos, turnover y coordinación. safeprojectsolution.com</p></article><article><span>04</span><h3>Carolinas Coverage</h3><p>Consulta independiente de cobertura de vivienda con Jeanna Cabrera; la agencia confirma prima y elegibilidad.</p></article><article><span>05</span><h3>Majestic Roofing</h3><p>Inspección de techo, alcance, reparación/reemplazo y documentación visible; la aseguradora decide reclamos.</p></article><article><span>06</span><h3>Decisión documentada</h3><p>Compara alcance, licencia, seguro, precio, garantía, plazo y permisos antes de contratar.</p></article></div></section><section class="detailCheck"><div><p class="eyebrow">Prepárate</p><h2>Trae estas respuestas a la conversación.</h2></div><ul><li>✓ Informe de inspección y fotos</li><li>✓ Alcance escrito y exclusiones</li><li>✓ Licencia, seguro y permisos aplicables</li><li>✓ Costo, plazo y garantía por escrito</li></ul></section><section class="detailLinks"><p class="eyebrow">Herramientas y próximos pasos</p><a href="/search">Buscar por ZIP, precio, habitaciones y baños →</a><a href="/qualify">Estimar poder de compra →</a><a href="https://safeprojectsolution.com/" target="_blank" rel="noreferrer">Safe Project Solutions →</a><a href="https://majesticroofing.co/" target="_blank" rel="noreferrer">Majestic Roofing →</a><a href="mailto:jeanna@carolinacoverageinsurance.com">Carolinas Coverage: email →</a></section><section class="detailFaq"><p class="eyebrow">FAQ</p><h2>Respuestas abiertas y directas.</h2><div class="faqOpen"><article><h3>¿Safe Project Solutions reemplaza al inspector?</h3><p>No. Es un recurso independiente para servicios, coordinación y preguntas específicas.</p></article><article><h3>¿Majestic garantiza un reclamo?</h3><p>No. Puede documentar y cotizar trabajo dentro de su alcance; la aseguradora determina cobertura y pago.</p></article></div></section><section class="detailConsult" id="consult"><div><p class="eyebrow">Consulta bilingüe</p><h2>Cuéntale a Manuela dónde estás hoy.</h2><p>El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.</p></div><form class="intake" method="post" action="/leads/intake">
-@Html.AntiForgeryToken()<input type="hidden" name="source" value="partners"/><input type="hidden" name="goal" value="partners"/><label>Nombre completo<input required="" autoComplete="name" name="name"/></label><div class="formGrid"><label>Email<input type="email" required="" autoComplete="email" name="email"/></label><label>Teléfono<input type="tel" required="" autoComplete="tel" name="phone"/></label></div><div class="formGrid"><label>Idioma<select name="language"><option>Español</option><option>English</option></select></label><label>Plazo<select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Explorando</option></select></label></div><label>Ciudad o zona objetivo<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area"/></label><label>Lo más importante que Manuela debe saber<textarea name="notes" rows="4" placeholder="Trabajo, familia, condición, espacios, fecha o preocupación principal…"></textarea></label><label class="consent"><input required="" type="checkbox" name="consent" value="yes"/><span>Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.</span></label><button class="btn primary">Enviar consulta</button></form></section>
+<section class="detailHero">
+    <p class="eyebrow">@Lang.T("Independent local network · Charlotte NC", "Red local independiente · Charlotte NC")</p>
+    <h1>@Lang.T("The general inspection is the start of the questions, not always the end.", "La inspección general es el comienzo de las preguntas, no siempre el final.")</h1>
+    <p>@Lang.T("Manuela can coordinate resources when questions arise about roof, HVAC, water heater, structure, moisture, electrical, repairs, insurance or moving. Each company is independent and the client keeps the decision.", "Manuela puede coordinar recursos cuando aparecen dudas sobre techo, HVAC, water heater, estructura, humedad, electricidad, reparaciones, seguro o mudanza. Cada empresa es independiente y el cliente conserva la decisión.")</p>
+    <div class="actions">
+        <a class="btn primary" href="#consult">@Lang.T("Prepare my consultation", "Preparar mi consulta")</a>
+        <a class="btn ghost" href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
+    </div>
+</section>
+<section class="detailContext">
+    <div>
+        <p class="eyebrow">@Lang.T("How Manuela helps you", "Cómo te ayuda Manuela")</p>
+        <h2>@Lang.T("The general inspection does not have to be the last question", "La inspección general no tiene que ser la última pregunta")</h2>
+        <p>@Lang.T("When a material concern appears, Manuela can help connect independent specialists to understand scope, cost and options before deciding. The client always keeps the right to choose and verify providers.", "Cuando aparece una duda material, Manuela puede ayudar a conectar especialistas independientes para entender alcance, costo y opciones antes de decidir. El cliente conserva siempre el derecho de escoger y verificar proveedores.")</p>
+    </div>
+    <ul>
+        <li><span>✓</span>@Lang.T("Safe Project Solutions: systems and repairs", "Safe Project Solutions: sistemas y reparaciones")</li>
+        <li><span>✓</span>@Lang.T("Majestic Roofing: roof and documentation", "Majestic Roofing: techo y documentación")</li>
+        <li><span>✓</span>@Lang.T("Carolinas Coverage: insurance conversation", "Carolinas Coverage: conversación de seguro")</li>
+        <li><span>✓</span>@Lang.T("Scope, license, warranty and price in writing", "Alcance, licencia, garantía y precio por escrito")</li>
+    </ul>
+</section>
+<section class="detailSteps">
+    <p class="eyebrow">@Lang.T("Step-by-step process", "Proceso paso a paso")</p>
+    <h2>@Lang.T("What we do and why it matters.", "Qué hacemos y por qué importa.")</h2>
+    <div>
+        <article><span>01</span><h3>@Lang.T("General inspection", "Inspección general")</h3><p>@Lang.T("A home inspector documents visible conditions within their scope.", "Un home inspector documenta condiciones visibles dentro de su alcance.")</p></article>
+        <article><span>02</span><h3>@Lang.T("Specialist when needed", "Especialista cuando aplica")</h3><p>@Lang.T("HVAC, roof, structure, plumbing or electrical findings may need a separate evaluation.", "Hallazgos de HVAC, techo, estructura, plomería o electricidad pueden necesitar evaluación separada.")</p></article>
+        <article><span>03</span><h3>Safe Project Solutions</h3><p>@Lang.T("Property services, repairs, renovations, photo estimates, turnover and coordination.", "Servicios de propiedad, reparaciones, renovaciones, estimados con fotos, turnover y coordinación.") safeprojectsolution.com</p></article>
+        <article><span>04</span><h3>Carolinas Coverage</h3><p>@Lang.T("Independent home coverage consultation with Jeanna Cabrera; the agency confirms premium and eligibility.", "Consulta independiente de cobertura de vivienda con Jeanna Cabrera; la agencia confirma prima y elegibilidad.")</p></article>
+        <article><span>05</span><h3>Majestic Roofing</h3><p>@Lang.T("Roof inspection, scope, repair/replacement and visible documentation; the insurer decides claims.", "Inspección de techo, alcance, reparación/reemplazo y documentación visible; la aseguradora decide reclamos.")</p></article>
+        <article><span>06</span><h3>@Lang.T("Documented decision", "Decisión documentada")</h3><p>@Lang.T("Compare scope, license, insurance, price, warranty, timeline and permits before hiring.", "Compara alcance, licencia, seguro, precio, garantía, plazo y permisos antes de contratar.")</p></article>
+    </div>
+</section>
+<section class="detailCheck">
+    <div>
+        <p class="eyebrow">@Lang.T("Get ready", "Prepárate")</p>
+        <h2>@Lang.T("Bring these answers to the conversation.", "Trae estas respuestas a la conversación.")</h2>
+    </div>
+    <ul>
+        <li>✓ @Lang.T("Inspection report and photos", "Informe de inspección y fotos")</li>
+        <li>✓ @Lang.T("Written scope and exclusions", "Alcance escrito y exclusiones")</li>
+        <li>✓ @Lang.T("License, insurance and applicable permits", "Licencia, seguro y permisos aplicables")</li>
+        <li>✓ @Lang.T("Cost, timeline and warranty in writing", "Costo, plazo y garantía por escrito")</li>
+    </ul>
+</section>
+<section class="detailLinks">
+    <p class="eyebrow">@Lang.T("Tools and next steps", "Herramientas y próximos pasos")</p>
+    <a href="/search">@Lang.T("Search by ZIP, price, beds and baths →", "Buscar por ZIP, precio, habitaciones y baños →")</a>
+    <a href="/qualify">@Lang.T("Estimate buying power →", "Estimar poder de compra →")</a>
+    <a href="https://safeprojectsolution.com/" target="_blank" rel="noreferrer">Safe Project Solutions →</a>
+    <a href="https://majesticroofing.co/" target="_blank" rel="noreferrer">Majestic Roofing →</a>
+    <a href="mailto:jeanna@carolinacoverageinsurance.com">@Lang.T("Carolinas Coverage: email →", "Carolinas Coverage: email →")</a>
+</section>
+<section class="detailFaq">
+    <p class="eyebrow">FAQ</p>
+    <h2>@Lang.T("Open, direct answers.", "Respuestas abiertas y directas.")</h2>
+    <div class="faqOpen">
+        <article><h3>@Lang.T("Does Safe Project Solutions replace the inspector?", "¿Safe Project Solutions reemplaza al inspector?")</h3><p>@Lang.T("No. It is an independent resource for services, coordination and specific questions.", "No. Es un recurso independiente para servicios, coordinación y preguntas específicas.")</p></article>
+        <article><h3>@Lang.T("Does Majestic guarantee a claim?", "¿Majestic garantiza un reclamo?")</h3><p>@Lang.T("No. It can document and quote work within its scope; the insurer determines coverage and payment.", "No. Puede documentar y cotizar trabajo dentro de su alcance; la aseguradora determina cobertura y pago.")</p></article>
+    </div>
+</section>
+<section class="detailConsult" id="consult">
+    <div>
+        <p class="eyebrow">@Lang.T("Bilingual consultation", "Consulta bilingüe")</p>
+        <h2>@Lang.T("Tell Manuela where you are today.", "Cuéntale a Manuela dónde estás hoy.")</h2>
+        <p>@Lang.T("The form identifies your situation so follow-up is specific. It is a real estate consultation, not a credit application.", "El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.")</p>
+    </div>
+    <form class="intake" method="post" action="/leads/intake">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="source" value="partners" />
+        <input type="hidden" name="goal" value="partners" />
+        <label>@Lang.T("Full name", "Nombre completo")<input required autocomplete="name" name="name" /></label>
+        <div class="formGrid">
+            <label>Email<input type="email" required autocomplete="email" name="email" /></label>
+            <label>@Lang.T("Phone", "Teléfono")<input type="tel" required autocomplete="tel" name="phone" /></label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Language", "Idioma")
+                <select name="language">
+                    @if (Lang.IsSpanish) { <option selected>Español</option><option>English</option> }
+                    else { <option>Español</option><option selected>English</option> }
+                </select>
+            </label>
+            <label>@Lang.T("Timeline", "Plazo")
+                <select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>@Lang.T("Exploring", "Explorando")</option></select>
+            </label>
+        </div>
+        <label>@Lang.T("Target city or area", "Ciudad o zona objetivo")<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area" /></label>
+        <label>@Lang.T("Most important thing Manuela should know", "Lo más importante que Manuela debe saber")
+            <textarea name="notes" rows="4" placeholder="@Lang.T("Inspection findings, systems, repairs or main concern…", "Hallazgos de inspección, sistemas, reparaciones o preocupación principal…")"></textarea>
+        </label>
+        <label class="consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>@Lang.T("I authorize Manuela Ruiz to contact me. South Carolina inquiries are coordinated with a professional who holds the applicable license.", "Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.")</span>
+        </label>
+        <button class="btn primary">@Lang.T("Send consultation", "Enviar consulta")</button>
+    </form>
+</section>
 </div>

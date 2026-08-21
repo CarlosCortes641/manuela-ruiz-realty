@@ -2,6 +2,111 @@
     ViewData["Title"] = Lang.T("First-time homebuyers in Charlotte | Manuela Ruiz", "Primera vivienda en Charlotte | Manuela Ruiz");
 }
 <div class="detailPage">
-<section class="detailHero"><p class="eyebrow">Primera vivienda · Charlotte NC</p><h1>Tu primera compra, explicada antes de firmar.</h1><p>Aprende qué hace cada profesional, cuánto dinero puede requerir cada etapa y qué programas oficiales vale la pena preguntar. Manuela traduce el proceso sin reemplazar al prestamista, abogado, inspector o asesor fiscal.</p><div class="actions"><a class="btn primary" href="#consult">Preparar mi consulta</a><a class="btn ghost" href="tel:+17048308486">704-830-8486</a></div></section><section class="detailContext"><div><p class="eyebrow">Cómo te ayuda Manuela</p><h2>Una decisión a la vez</h2><p>La primera compra incluye palabras, documentos y fechas que casi nadie conoce al comenzar. La meta es traducir cada etapa y preparar al comprador antes de que una decisión tenga costo o consecuencias.</p></div><ul><li><span>✓</span>Prequalification vs. preapproval</li><li><span>✓</span>Down payment, cierre, inspección y reservas</li><li><span>✓</span>Programas oficiales que vale la pena preguntar</li><li><span>✓</span>Revisión de cifras antes de firmar</li></ul></section><section class="detailSteps"><p class="eyebrow">Proceso paso a paso</p><h2>Qué hacemos y por qué importa.</h2><div><article><span>01</span><h3>Conversación inicial</h3><p>Metas, calendario, presupuesto y dudas en español o inglés.</p></article><article><span>02</span><h3>Preparación financiera</h3><p>Crédito, ingresos, fondos y opciones con un lender autorizado.</p></article><article><span>03</span><h3>Programas oficiales</h3><p>Pregunta por House Charlotte y NC Home Advantage; fondos y elegibilidad cambian.</p></article><article><span>04</span><h3>Búsqueda educativa</h3><p>Compara costo total y condición, no solo el precio publicado.</p></article><article><span>05</span><h3>Inspección y negociación</h3><p>Los hallazgos informan decisiones; no todos producen reparación o crédito.</p></article><article><span>06</span><h3>Cierre informado</h3><p>Revisa cifras y documentos antes de transferir fondos o firmar.</p></article></div></section><section class="detailCheck"><div><p class="eyebrow">Prepárate</p><h2>Trae estas respuestas a la conversación.</h2></div><ul><li>✓ Últimos comprobantes de ingreso</li><li>✓ Estados bancarios y fondos para cierre</li><li>✓ Historial de empleo o negocio</li><li>✓ SSN, ITIN o preguntas sobre documentación</li></ul></section><section class="detailLinks"><p class="eyebrow">Herramientas y próximos pasos</p><a href="/search">Buscar por ZIP, precio, habitaciones y baños →</a><a href="/qualify">Estimar poder de compra →</a><a href="/programs">Comparar todos los programas →</a><a href="https://www.charlottenc.gov/Streets-and-Neighborhoods/Housing/Resources-for-Homeowners-Renters/Homeownership" target="_blank" rel="noreferrer">House Charlotte (oficial) →</a><a href="https://www.nchfa.com/home-buyers/buy-home/nc-home-advantage-mortgage" target="_blank" rel="noreferrer">NC Home Advantage (oficial) →</a></section><section class="detailFaq"><p class="eyebrow">FAQ</p><h2>Respuestas abiertas y directas.</h2><div class="faqOpen"><article><h3>¿Hay ayuda para el down payment?</h3><p>Puede haber programas municipales, estatales o privados. Cada uno confirma fondos, límites, educación requerida y elegibilidad.</p></article><article><h3>¿Una carta de empleo garantiza aprobación?</h3><p>No. Puede ser un documento útil, pero el lender decide cómo calcula y documenta el ingreso.</p></article></div></section><section class="detailConsult" id="consult"><div><p class="eyebrow">Consulta bilingüe</p><h2>Cuéntale a Manuela dónde estás hoy.</h2><p>El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.</p></div><form class="intake" method="post" action="/leads/intake">
-@Html.AntiForgeryToken()<input type="hidden" name="source" value="first-time-buyers"/><input type="hidden" name="goal" value="first-time-buyers"/><label>Nombre completo<input required="" autoComplete="name" name="name"/></label><div class="formGrid"><label>Email<input type="email" required="" autoComplete="email" name="email"/></label><label>Teléfono<input type="tel" required="" autoComplete="tel" name="phone"/></label></div><div class="formGrid"><label>Idioma<select name="language"><option>Español</option><option>English</option></select></label><label>Plazo<select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Explorando</option></select></label></div><div class="formGrid"><label>Documento financiero<select name="financing"><option>Social Security</option><option>ITIN</option><option>No sé</option></select></label><label>Presupuesto<select name="budget"><option>$150k–$250k</option><option>$250k–$350k</option><option>$350k–$500k</option><option>$500k–$750k</option><option>$750k+</option><option>Necesito calcularlo</option></select></label></div><label>Ciudad o zona objetivo<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area"/></label><label>Lo más importante que Manuela debe saber<textarea name="notes" rows="4" placeholder="Trabajo, familia, condición, espacios, fecha o preocupación principal…"></textarea></label><label class="consent"><input required="" type="checkbox" name="consent" value="yes"/><span>Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.</span></label><button class="btn primary">Enviar consulta</button></form></section>
+<section class="detailHero">
+    <p class="eyebrow">@Lang.T("First-time home · Charlotte NC", "Primera vivienda · Charlotte NC")</p>
+    <h1>@Lang.T("Your first purchase, explained before you sign.", "Tu primera compra, explicada antes de firmar.")</h1>
+    <p>@Lang.T("Learn what each professional does, how much money each stage may require and which official programs are worth asking about. Manuela translates the process without replacing the lender, attorney, inspector or tax advisor.", "Aprende qué hace cada profesional, cuánto dinero puede requerir cada etapa y qué programas oficiales vale la pena preguntar. Manuela traduce el proceso sin reemplazar al prestamista, abogado, inspector o asesor fiscal.")</p>
+    <div class="actions">
+        <a class="btn primary" href="#consult">@Lang.T("Prepare my consultation", "Preparar mi consulta")</a>
+        <a class="btn ghost" href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
+    </div>
+</section>
+<section class="detailContext">
+    <div>
+        <p class="eyebrow">@Lang.T("How Manuela helps you", "Cómo te ayuda Manuela")</p>
+        <h2>@Lang.T("One decision at a time", "Una decisión a la vez")</h2>
+        <p>@Lang.T("A first purchase includes words, documents and dates almost nobody knows at the start. The goal is to translate each stage and prepare the buyer before a decision has cost or consequences.", "La primera compra incluye palabras, documentos y fechas que casi nadie conoce al comenzar. La meta es traducir cada etapa y preparar al comprador antes de que una decisión tenga costo o consecuencias.")</p>
+    </div>
+    <ul>
+        <li><span>✓</span>Prequalification vs. preapproval</li>
+        <li><span>✓</span>@Lang.T("Down payment, closing, inspection and reserves", "Down payment, cierre, inspección y reservas")</li>
+        <li><span>✓</span>@Lang.T("Official programs worth asking about", "Programas oficiales que vale la pena preguntar")</li>
+        <li><span>✓</span>@Lang.T("Review of figures before signing", "Revisión de cifras antes de firmar")</li>
+    </ul>
+</section>
+<section class="detailSteps">
+    <p class="eyebrow">@Lang.T("Step-by-step process", "Proceso paso a paso")</p>
+    <h2>@Lang.T("What we do and why it matters.", "Qué hacemos y por qué importa.")</h2>
+    <div>
+        <article><span>01</span><h3>@Lang.T("Initial conversation", "Conversación inicial")</h3><p>@Lang.T("Goals, timeline, budget and questions in Spanish or English.", "Metas, calendario, presupuesto y dudas en español o inglés.")</p></article>
+        <article><span>02</span><h3>@Lang.T("Financial preparation", "Preparación financiera")</h3><p>@Lang.T("Credit, income, funds and options with an authorized lender.", "Crédito, ingresos, fondos y opciones con un lender autorizado.")</p></article>
+        <article><span>03</span><h3>@Lang.T("Official programs", "Programas oficiales")</h3><p>@Lang.T("Ask about HouseCharlotte and NC Home Advantage; funds and eligibility change.", "Pregunta por House Charlotte y NC Home Advantage; fondos y elegibilidad cambian.")</p></article>
+        <article><span>04</span><h3>@Lang.T("Educational search", "Búsqueda educativa")</h3><p>@Lang.T("Compare total cost and condition, not only list price.", "Compara costo total y condición, no solo el precio publicado.")</p></article>
+        <article><span>05</span><h3>@Lang.T("Inspection and negotiation", "Inspección y negociación")</h3><p>@Lang.T("Findings inform decisions; not every finding produces a repair or credit.", "Los hallazgos informan decisiones; no todos producen reparación o crédito.")</p></article>
+        <article><span>06</span><h3>@Lang.T("Informed closing", "Cierre informado")</h3><p>@Lang.T("Review figures and documents before transferring funds or signing.", "Revisa cifras y documentos antes de transferir fondos o firmar.")</p></article>
+    </div>
+</section>
+<section class="detailCheck">
+    <div>
+        <p class="eyebrow">@Lang.T("Get ready", "Prepárate")</p>
+        <h2>@Lang.T("Bring these answers to the conversation.", "Trae estas respuestas a la conversación.")</h2>
+    </div>
+    <ul>
+        <li>✓ @Lang.T("Recent income statements", "Últimos comprobantes de ingreso")</li>
+        <li>✓ @Lang.T("Bank statements and funds to close", "Estados bancarios y fondos para cierre")</li>
+        <li>✓ @Lang.T("Employment or business history", "Historial de empleo o negocio")</li>
+        <li>✓ @Lang.T("SSN, ITIN or documentation questions", "SSN, ITIN o preguntas sobre documentación")</li>
+    </ul>
+</section>
+<section class="detailLinks">
+    <p class="eyebrow">@Lang.T("Tools and next steps", "Herramientas y próximos pasos")</p>
+    <a href="/search">@Lang.T("Search by ZIP, price, beds and baths →", "Buscar por ZIP, precio, habitaciones y baños →")</a>
+    <a href="/qualify">@Lang.T("Estimate buying power →", "Estimar poder de compra →")</a>
+    <a href="/programs">@Lang.T("Compare all programs →", "Comparar todos los programas →")</a>
+    <a href="https://www.charlottenc.gov/Streets-and-Neighborhoods/Housing/Resources-for-Homeowners-Renters/Homeownership" target="_blank" rel="noreferrer">House Charlotte (oficial) →</a>
+    <a href="https://www.nchfa.com/home-buyers/buy-home/nc-home-advantage-mortgage" target="_blank" rel="noreferrer">NC Home Advantage (oficial) →</a>
+</section>
+<section class="detailFaq">
+    <p class="eyebrow">FAQ</p>
+    <h2>@Lang.T("Open, direct answers.", "Respuestas abiertas y directas.")</h2>
+    <div class="faqOpen">
+        <article><h3>@Lang.T("Is there help for the down payment?", "¿Hay ayuda para el down payment?")</h3><p>@Lang.T("There may be municipal, state or private programs. Each one confirms funds, limits, required education and eligibility.", "Puede haber programas municipales, estatales o privados. Cada uno confirma fondos, límites, educación requerida y elegibilidad.")</p></article>
+        <article><h3>@Lang.T("Does an employment letter guarantee approval?", "¿Una carta de empleo garantiza aprobación?")</h3><p>@Lang.T("No. It can be a useful document, but the lender decides how income is calculated and documented.", "No. Puede ser un documento útil, pero el lender decide cómo calcula y documenta el ingreso.")</p></article>
+    </div>
+</section>
+<section class="detailConsult" id="consult">
+    <div>
+        <p class="eyebrow">@Lang.T("Bilingual consultation", "Consulta bilingüe")</p>
+        <h2>@Lang.T("Tell Manuela where you are today.", "Cuéntale a Manuela dónde estás hoy.")</h2>
+        <p>@Lang.T("The form identifies your situation so follow-up is specific. It is a real estate consultation, not a credit application.", "El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.")</p>
+    </div>
+    <form class="intake" method="post" action="/leads/intake">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="source" value="first-time-buyers" />
+        <input type="hidden" name="goal" value="first-time-buyers" />
+        <label>@Lang.T("Full name", "Nombre completo")<input required autocomplete="name" name="name" /></label>
+        <div class="formGrid">
+            <label>Email<input type="email" required autocomplete="email" name="email" /></label>
+            <label>@Lang.T("Phone", "Teléfono")<input type="tel" required autocomplete="tel" name="phone" /></label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Language", "Idioma")
+                <select name="language">
+                    @if (Lang.IsSpanish) { <option selected>Español</option><option>English</option> }
+                    else { <option>Español</option><option selected>English</option> }
+                </select>
+            </label>
+            <label>@Lang.T("Timeline", "Plazo")
+                <select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>@Lang.T("Exploring", "Explorando")</option></select>
+            </label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Financing document", "Documento financiero")
+                <select name="financing"><option>Social Security</option><option>ITIN</option><option>@Lang.T("Not sure", "No sé")</option></select>
+            </label>
+            <label>@Lang.T("Budget", "Presupuesto")
+                <select name="budget"><option>$150k–$250k</option><option>$250k–$350k</option><option>$350k–$500k</option><option>$500k–$750k</option><option>$750k+</option><option>@Lang.T("I need to calculate it", "Necesito calcularlo")</option></select>
+            </label>
+        </div>
+        <label>@Lang.T("Target city or area", "Ciudad o zona objetivo")<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area" /></label>
+        <label>@Lang.T("Most important thing Manuela should know", "Lo más importante que Manuela debe saber")
+            <textarea name="notes" rows="4" placeholder="@Lang.T("Work, family, condition, spaces, date or main concern…", "Trabajo, familia, condición, espacios, fecha o preocupación principal…")"></textarea>
+        </label>
+        <label class="consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>@Lang.T("I authorize Manuela Ruiz to contact me. South Carolina inquiries are coordinated with a professional who holds the applicable license.", "Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.")</span>
+        </label>
+        <button class="btn primary">@Lang.T("Send consultation", "Enviar consulta")</button>
+    </form>
+</section>
 </div>

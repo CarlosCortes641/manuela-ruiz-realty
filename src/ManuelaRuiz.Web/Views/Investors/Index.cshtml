@@ -2,6 +2,110 @@
     ViewData["Title"] = Lang.T("Invest in Charlotte real estate | Manuela Ruiz", "Invertir en bienes raíces en Charlotte | Manuela Ruiz");
 }
 <div class="detailPage">
-<section class="detailHero"><p class="eyebrow">Propiedades de inversión · Charlotte NC</p><h1>Una propiedad bonita no siempre es una buena inversión.</h1><p>Definimos estrategia, criterios de rendimiento, condición y plan de salida. Manuela coordina el proceso inmobiliario; renta, impuestos, estructura legal y financiamiento requieren confirmación de los profesionales correspondientes.</p><div class="actions"><a class="btn primary" href="#consult">Preparar mi consulta</a><a class="btn ghost" href="tel:+17048308486">704-830-8486</a></div></section><section class="detailContext"><div><p class="eyebrow">Cómo te ayuda Manuela</p><h2>Primero la estrategia; después la propiedad</h2><p>La búsqueda se construye desde el uso previsto y el riesgo aceptable. Cada propiedad se revisa con supuestos transparentes sobre renta, vacancia, reparación, reservas, seguro y salida; no con una promesa de retorno.</p></div><ul><li><span>✓</span>Renta, renovación, terreno o nueva construcción</li><li><span>✓</span>Escenario conservador y reservas</li><li><span>✓</span>Condición y estimados antes de comprometer capital</li><li><span>✓</span>Profesionales para impuestos, título y operación</li></ul></section><section class="detailSteps"><p class="eyebrow">Proceso paso a paso</p><h2>Qué hacemos y por qué importa.</h2><div><article><span>01</span><h3>Tesis de inversión</h3><p>Renta a largo plazo, renovación, nueva construcción o terreno.</p></article><article><span>02</span><h3>Números antes del tour</h3><p>Precio, renta estimada, vacancia, gastos, reservas y reparación.</p></article><article><span>03</span><h3>Selección de mercado</h3><p>Demanda, empleo, oferta, reglas y liquidez de reventa.</p></article><article><span>04</span><h3>Oferta disciplinada</h3><p>El precio máximo nace del escenario, no de la emoción.</p></article><article><span>05</span><h3>Alcance de reparaciones</h3><p>Inspección y estimados independientes antes de cerrar cuando sea posible.</p></article><article><span>06</span><h3>Cierre y operación</h3><p>Título, seguro, proveedores y plan de administración.</p></article></div></section><section class="detailCheck"><div><p class="eyebrow">Prepárate</p><h2>Trae estas respuestas a la conversación.</h2></div><ul><li>✓ Capital disponible y reservas</li><li>✓ Objetivo de cash flow o apreciación</li><li>✓ Nivel de reparación aceptable</li><li>✓ Estrategia de administración y salida</li></ul></section><section class="detailLinks"><p class="eyebrow">Herramientas y próximos pasos</p><a href="/search">Buscar por ZIP, precio, habitaciones y baños →</a><a href="/qualify">Estimar poder de compra →</a><a href="/partners">Red de especialistas →</a><a href="/areas">Ciudades y mercado →</a></section><section class="detailFaq"><p class="eyebrow">FAQ</p><h2>Respuestas abiertas y directas.</h2><div class="faqOpen"><article><h3>¿Garantizan rentabilidad?</h3><p>No. Toda proyección usa supuestos y debe validarse con datos, inspección y asesores.</p></article><article><h3>¿Pueden conectar contratistas?</h3><p>Sí, como recursos independientes. El inversionista verifica credenciales, precio, alcance y garantía.</p></article></div></section><section class="detailConsult" id="consult"><div><p class="eyebrow">Consulta bilingüe</p><h2>Cuéntale a Manuela dónde estás hoy.</h2><p>El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.</p></div><form class="intake" method="post" action="/leads/intake">
-@Html.AntiForgeryToken()<input type="hidden" name="source" value="investors"/><input type="hidden" name="goal" value="investors"/><label>Nombre completo<input required="" autoComplete="name" name="name"/></label><div class="formGrid"><label>Email<input type="email" required="" autoComplete="email" name="email"/></label><label>Teléfono<input type="tel" required="" autoComplete="tel" name="phone"/></label></div><div class="formGrid"><label>Idioma<select name="language"><option>Español</option><option>English</option></select></label><label>Plazo<select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Explorando</option></select></label></div><div class="formGrid"><label>Documento financiero<select name="financing"><option>Social Security</option><option>ITIN</option><option>No sé</option></select></label><label>Presupuesto<select name="budget"><option>$150k–$250k</option><option>$250k–$350k</option><option>$350k–$500k</option><option>$500k–$750k</option><option>$750k+</option><option>Necesito calcularlo</option></select></label></div><label>Ciudad o zona objetivo<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area"/></label><label>Lo más importante que Manuela debe saber<textarea name="notes" rows="4" placeholder="Trabajo, familia, condición, espacios, fecha o preocupación principal…"></textarea></label><label class="consent"><input required="" type="checkbox" name="consent" value="yes"/><span>Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.</span></label><button class="btn primary">Enviar consulta</button></form></section>
+<section class="detailHero">
+    <p class="eyebrow">@Lang.T("Investment properties · Charlotte NC", "Propiedades de inversión · Charlotte NC")</p>
+    <h1>@Lang.T("A beautiful property is not always a good investment.", "Una propiedad bonita no siempre es una buena inversión.")</h1>
+    <p>@Lang.T("We define strategy, performance criteria, condition and an exit plan. Manuela coordinates the real estate process; rent, taxes, legal structure and financing require confirmation from the corresponding professionals.", "Definimos estrategia, criterios de rendimiento, condición y plan de salida. Manuela coordina el proceso inmobiliario; renta, impuestos, estructura legal y financiamiento requieren confirmación de los profesionales correspondientes.")</p>
+    <div class="actions">
+        <a class="btn primary" href="#consult">@Lang.T("Prepare my consultation", "Preparar mi consulta")</a>
+        <a class="btn ghost" href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
+    </div>
+</section>
+<section class="detailContext">
+    <div>
+        <p class="eyebrow">@Lang.T("How Manuela helps you", "Cómo te ayuda Manuela")</p>
+        <h2>@Lang.T("Strategy first; then the property", "Primero la estrategia; después la propiedad")</h2>
+        <p>@Lang.T("The search is built from intended use and acceptable risk. Each property is reviewed with transparent assumptions about rent, vacancy, repairs, reserves, insurance and exit — not with a promised return.", "La búsqueda se construye desde el uso previsto y el riesgo aceptable. Cada propiedad se revisa con supuestos transparentes sobre renta, vacancia, reparación, reservas, seguro y salida; no con una promesa de retorno.")</p>
+    </div>
+    <ul>
+        <li><span>✓</span>@Lang.T("Rent, renovation, land or new construction", "Renta, renovación, terreno o nueva construcción")</li>
+        <li><span>✓</span>@Lang.T("Conservative scenario and reserves", "Escenario conservador y reservas")</li>
+        <li><span>✓</span>@Lang.T("Condition and estimates before committing capital", "Condición y estimados antes de comprometer capital")</li>
+        <li><span>✓</span>@Lang.T("Professionals for taxes, title and operations", "Profesionales para impuestos, título y operación")</li>
+    </ul>
+</section>
+<section class="detailSteps">
+    <p class="eyebrow">@Lang.T("Step-by-step process", "Proceso paso a paso")</p>
+    <h2>@Lang.T("What we do and why it matters.", "Qué hacemos y por qué importa.")</h2>
+    <div>
+        <article><span>01</span><h3>@Lang.T("Investment thesis", "Tesis de inversión")</h3><p>@Lang.T("Long-term rent, renovation, new construction or land.", "Renta a largo plazo, renovación, nueva construcción o terreno.")</p></article>
+        <article><span>02</span><h3>@Lang.T("Numbers before the tour", "Números antes del tour")</h3><p>@Lang.T("Price, estimated rent, vacancy, expenses, reserves and repairs.", "Precio, renta estimada, vacancia, gastos, reservas y reparación.")</p></article>
+        <article><span>03</span><h3>@Lang.T("Market selection", "Selección de mercado")</h3><p>@Lang.T("Demand, employment, supply, rules and resale liquidity.", "Demanda, empleo, oferta, reglas y liquidez de reventa.")</p></article>
+        <article><span>04</span><h3>@Lang.T("Disciplined offer", "Oferta disciplinada")</h3><p>@Lang.T("Maximum price comes from the scenario, not emotion.", "El precio máximo nace del escenario, no de la emoción.")</p></article>
+        <article><span>05</span><h3>@Lang.T("Repair scope", "Alcance de reparaciones")</h3><p>@Lang.T("Inspection and independent estimates before closing when possible.", "Inspección y estimados independientes antes de cerrar cuando sea posible.")</p></article>
+        <article><span>06</span><h3>@Lang.T("Closing and operations", "Cierre y operación")</h3><p>@Lang.T("Title, insurance, providers and a management plan.", "Título, seguro, proveedores y plan de administración.")</p></article>
+    </div>
+</section>
+<section class="detailCheck">
+    <div>
+        <p class="eyebrow">@Lang.T("Get ready", "Prepárate")</p>
+        <h2>@Lang.T("Bring these answers to the conversation.", "Trae estas respuestas a la conversación.")</h2>
+    </div>
+    <ul>
+        <li>✓ @Lang.T("Available capital and reserves", "Capital disponible y reservas")</li>
+        <li>✓ @Lang.T("Cash-flow or appreciation goal", "Objetivo de cash flow o apreciación")</li>
+        <li>✓ @Lang.T("Acceptable repair level", "Nivel de reparación aceptable")</li>
+        <li>✓ @Lang.T("Management and exit strategy", "Estrategia de administración y salida")</li>
+    </ul>
+</section>
+<section class="detailLinks">
+    <p class="eyebrow">@Lang.T("Tools and next steps", "Herramientas y próximos pasos")</p>
+    <a href="/search">@Lang.T("Search by ZIP, price, beds and baths →", "Buscar por ZIP, precio, habitaciones y baños →")</a>
+    <a href="/qualify">@Lang.T("Estimate buying power →", "Estimar poder de compra →")</a>
+    <a href="/partners">@Lang.T("Specialist network →", "Red de especialistas →")</a>
+    <a href="/areas">@Lang.T("Cities and market →", "Ciudades y mercado →")</a>
+</section>
+<section class="detailFaq">
+    <p class="eyebrow">FAQ</p>
+    <h2>@Lang.T("Open, direct answers.", "Respuestas abiertas y directas.")</h2>
+    <div class="faqOpen">
+        <article><h3>@Lang.T("Do you guarantee returns?", "¿Garantizan rentabilidad?")</h3><p>@Lang.T("No. Every projection uses assumptions and must be validated with data, inspection and advisors.", "No. Toda proyección usa supuestos y debe validarse con datos, inspección y asesores.")</p></article>
+        <article><h3>@Lang.T("Can you connect contractors?", "¿Pueden conectar contratistas?")</h3><p>@Lang.T("Yes, as independent resources. The investor verifies credentials, price, scope and warranty.", "Sí, como recursos independientes. El inversionista verifica credenciales, precio, alcance y garantía.")</p></article>
+    </div>
+</section>
+<section class="detailConsult" id="consult">
+    <div>
+        <p class="eyebrow">@Lang.T("Bilingual consultation", "Consulta bilingüe")</p>
+        <h2>@Lang.T("Tell Manuela where you are today.", "Cuéntale a Manuela dónde estás hoy.")</h2>
+        <p>@Lang.T("The form identifies your situation so follow-up is specific. It is a real estate consultation, not a credit application.", "El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.")</p>
+    </div>
+    <form class="intake" method="post" action="/leads/intake">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="source" value="investors" />
+        <input type="hidden" name="goal" value="investors" />
+        <label>@Lang.T("Full name", "Nombre completo")<input required autocomplete="name" name="name" /></label>
+        <div class="formGrid">
+            <label>Email<input type="email" required autocomplete="email" name="email" /></label>
+            <label>@Lang.T("Phone", "Teléfono")<input type="tel" required autocomplete="tel" name="phone" /></label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Language", "Idioma")
+                <select name="language">
+                    @if (Lang.IsSpanish) { <option selected>Español</option><option>English</option> }
+                    else { <option>Español</option><option selected>English</option> }
+                </select>
+            </label>
+            <label>@Lang.T("Timeline", "Plazo")
+                <select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>@Lang.T("Exploring", "Explorando")</option></select>
+            </label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Financing document", "Documento financiero")
+                <select name="financing"><option>Social Security</option><option>ITIN</option><option>@Lang.T("Not sure", "No sé")</option></select>
+            </label>
+            <label>@Lang.T("Budget", "Presupuesto")
+                <select name="budget"><option>$150k–$250k</option><option>$250k–$350k</option><option>$350k–$500k</option><option>$500k–$750k</option><option>$750k+</option><option>@Lang.T("I need to calculate it", "Necesito calcularlo")</option></select>
+            </label>
+        </div>
+        <label>@Lang.T("Target city or area", "Ciudad o zona objetivo")<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area" /></label>
+        <label>@Lang.T("Most important thing Manuela should know", "Lo más importante que Manuela debe saber")
+            <textarea name="notes" rows="4" placeholder="@Lang.T("Strategy, capital, repair level or main concern…", "Estrategia, capital, nivel de reparación o preocupación principal…")"></textarea>
+        </label>
+        <label class="consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>@Lang.T("I authorize Manuela Ruiz to contact me. South Carolina inquiries are coordinated with a professional who holds the applicable license.", "Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.")</span>
+        </label>
+        <button class="btn primary">@Lang.T("Send consultation", "Enviar consulta")</button>
+    </form>
+</section>
 </div>

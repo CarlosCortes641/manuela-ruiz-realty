@@ -2,6 +2,110 @@
     ViewData["Title"] = Lang.T("Sell a home in Charlotte | Manuela Ruiz", "Vender una casa en Charlotte | Manuela Ruiz");
 }
 <div class="detailPage">
-<section class="detailHero"><p class="eyebrow">Vender una propiedad · Charlotte NC</p><h1>Preparar bien antes de publicar puede proteger la negociación.</h1><p>La estrategia combina condición, comparables, presentación, acceso, marketing y comunicación. No prometemos un precio sin revisar la propiedad y el mercado actual.</p><div class="actions"><a class="btn primary" href="#consult">Preparar mi consulta</a><a class="btn ghost" href="tel:+17048308486">704-830-8486</a></div></section><section class="detailContext"><div><p class="eyebrow">Cómo te ayuda Manuela</p><h2>El seguimiento empieza con un número real</h2><p>Antes de recomendar precio o reparaciones, Manuela necesita dirección, condición, mejoras, saldo aproximado, fecha ideal y próximo destino. Con esa información prepara un CMA y una estrategia; una cifra automática no sustituye la visita y los comparables actuales.</p></div><ul><li><span>✓</span>CMA con comparables y competencia activa</li><li><span>✓</span>Preparación según costo e impacto</li><li><span>✓</span>Marketing, acceso y revisión de ofertas</li><li><span>✓</span>Neto, contingencias y riesgo de cierre</li></ul></section><section class="detailSteps"><p class="eyebrow">Proceso paso a paso</p><h2>Qué hacemos y por qué importa.</h2><div><article><span>01</span><h3>Consulta y objetivo</h3><p>Fecha, saldo, próximo hogar, condición y prioridades.</p></article><article><span>02</span><h3>Análisis de mercado</h3><p>Ventas comparables, competencia activa y escenario de precio.</p></article><article><span>03</span><h3>Preparación</h3><p>Reparaciones de alto impacto, limpieza, fotos y disclosures.</p></article><article><span>04</span><h3>Lanzamiento</h3><p>Presentación, descripción, distribución y acceso coordinado.</p></article><article><span>05</span><h3>Ofertas</h3><p>Compara precio neto, financiamiento, contingencias y riesgo.</p></article><article><span>06</span><h3>Contrato a cierre</h3><p>Inspección, appraisal, título, reparaciones y entrega.</p></article></div></section><section class="detailCheck"><div><p class="eyebrow">Prepárate</p><h2>Trae estas respuestas a la conversación.</h2></div><ul><li>✓ Dirección y mejoras realizadas</li><li>✓ Plazo ideal y próximo destino</li><li>✓ Hipoteca aproximada y costos</li><li>✓ Disponibilidad para recorridos</li></ul></section><section class="detailLinks"><p class="eyebrow">Herramientas y próximos pasos</p><a href="/search">Buscar por ZIP, precio, habitaciones y baños →</a><a href="/qualify">Estimar poder de compra →</a><a href="/partners">Red de especialistas →</a><a href="tel:+17048308486">Llamar a Manuela →</a></section><section class="detailFaq"><p class="eyebrow">FAQ</p><h2>Respuestas abiertas y directas.</h2><div class="faqOpen"><article><h3>¿Cuánto vale mi casa?</h3><p>Una estimación útil necesita condición, mejoras, ubicación exacta y comparables actuales.</p></article><article><h3>¿Debo reparar todo?</h3><p>No. Se priorizan seguridad, presentación, costo y posible impacto en negociación.</p></article></div></section><section class="detailConsult" id="consult"><div><p class="eyebrow">Consulta bilingüe</p><h2>Comienza con la propiedad y tu fecha ideal.</h2><p>El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.</p></div><form class="intake" method="post" action="/leads/intake">
-@Html.AntiForgeryToken()<input type="hidden" name="source" value="sellers"/><input type="hidden" name="goal" value="sellers"/><label>Nombre completo<input required="" autoComplete="name" name="name"/></label><div class="formGrid"><label>Email<input type="email" required="" autoComplete="email" name="email"/></label><label>Teléfono<input type="tel" required="" autoComplete="tel" name="phone"/></label></div><div class="formGrid"><label>Idioma<select name="language"><option>Español</option><option>English</option></select></label><label>Plazo<select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Explorando</option></select></label></div><label>Dirección de la propiedad<input required="" placeholder="Street, city, ZIP" name="notes"/></label><label>Objetivo principal<select name="budget"><option>Conocer el valor y preparar un CMA</option><option>Vender pronto</option><option>Comprar y vender</option><option>Propiedad de inversión</option></select></label><label>Ciudad o zona objetivo<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area"/></label><label>Lo más importante que Manuela debe saber<textarea name="financing" rows="4" placeholder="Trabajo, familia, condición, espacios, fecha o preocupación principal…"></textarea></label><label class="consent"><input required="" type="checkbox" name="consent" value="yes"/><span>Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.</span></label><button class="btn primary">Enviar consulta</button></form></section>
+<section class="detailHero">
+    <p class="eyebrow">@Lang.T("Sell a property · Charlotte NC", "Vender una propiedad · Charlotte NC")</p>
+    <h1>@Lang.T("Preparing well before you list can protect the negotiation.", "Preparar bien antes de publicar puede proteger la negociación.")</h1>
+    <p>@Lang.T("The strategy combines condition, comparables, presentation, access, marketing and communication. We do not promise a price without reviewing the property and the current market.", "La estrategia combina condición, comparables, presentación, acceso, marketing y comunicación. No prometemos un precio sin revisar la propiedad y el mercado actual.")</p>
+    <div class="actions">
+        <a class="btn primary" href="#consult">@Lang.T("Prepare my consultation", "Preparar mi consulta")</a>
+        <a class="btn ghost" href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
+    </div>
+</section>
+<section class="detailContext">
+    <div>
+        <p class="eyebrow">@Lang.T("How Manuela helps you", "Cómo te ayuda Manuela")</p>
+        <h2>@Lang.T("Follow-up starts with a real number", "El seguimiento empieza con un número real")</h2>
+        <p>@Lang.T("Before recommending price or repairs, Manuela needs the address, condition, improvements, approximate balance, ideal date and next destination. With that information she prepares a CMA and a strategy; an automatic figure does not replace a visit and current comps.", "Antes de recomendar precio o reparaciones, Manuela necesita dirección, condición, mejoras, saldo aproximado, fecha ideal y próximo destino. Con esa información prepara un CMA y una estrategia; una cifra automática no sustituye la visita y los comparables actuales.")</p>
+    </div>
+    <ul>
+        <li><span>✓</span>@Lang.T("CMA with comps and active competition", "CMA con comparables y competencia activa")</li>
+        <li><span>✓</span>@Lang.T("Preparation by cost and impact", "Preparación según costo e impacto")</li>
+        <li><span>✓</span>@Lang.T("Marketing, access and offer review", "Marketing, acceso y revisión de ofertas")</li>
+        <li><span>✓</span>@Lang.T("Net proceeds, contingencies and closing risk", "Neto, contingencias y riesgo de cierre")</li>
+    </ul>
+</section>
+<section class="detailSteps">
+    <p class="eyebrow">@Lang.T("Step-by-step process", "Proceso paso a paso")</p>
+    <h2>@Lang.T("What we do and why it matters.", "Qué hacemos y por qué importa.")</h2>
+    <div>
+        <article><span>01</span><h3>@Lang.T("Consultation and goal", "Consulta y objetivo")</h3><p>@Lang.T("Date, balance, next home, condition and priorities.", "Fecha, saldo, próximo hogar, condición y prioridades.")</p></article>
+        <article><span>02</span><h3>@Lang.T("Market analysis", "Análisis de mercado")</h3><p>@Lang.T("Comparable sales, active competition and a price scenario.", "Ventas comparables, competencia activa y escenario de precio.")</p></article>
+        <article><span>03</span><h3>@Lang.T("Preparation", "Preparación")</h3><p>@Lang.T("High-impact repairs, cleaning, photos and disclosures.", "Reparaciones de alto impacto, limpieza, fotos y disclosures.")</p></article>
+        <article><span>04</span><h3>@Lang.T("Launch", "Lanzamiento")</h3><p>@Lang.T("Presentation, description, distribution and coordinated access.", "Presentación, descripción, distribución y acceso coordinado.")</p></article>
+        <article><span>05</span><h3>@Lang.T("Offers", "Ofertas")</h3><p>@Lang.T("Compare net price, financing, contingencies and risk.", "Compara precio neto, financiamiento, contingencias y riesgo.")</p></article>
+        <article><span>06</span><h3>@Lang.T("Contract to closing", "Contrato a cierre")</h3><p>@Lang.T("Inspection, appraisal, title, repairs and delivery.", "Inspección, appraisal, título, reparaciones y entrega.")</p></article>
+    </div>
+</section>
+<section class="detailCheck">
+    <div>
+        <p class="eyebrow">@Lang.T("Get ready", "Prepárate")</p>
+        <h2>@Lang.T("Bring these answers to the conversation.", "Trae estas respuestas a la conversación.")</h2>
+    </div>
+    <ul>
+        <li>✓ @Lang.T("Address and improvements completed", "Dirección y mejoras realizadas")</li>
+        <li>✓ @Lang.T("Ideal timeline and next destination", "Plazo ideal y próximo destino")</li>
+        <li>✓ @Lang.T("Approximate mortgage and costs", "Hipoteca aproximada y costos")</li>
+        <li>✓ @Lang.T("Availability for showings", "Disponibilidad para recorridos")</li>
+    </ul>
+</section>
+<section class="detailLinks">
+    <p class="eyebrow">@Lang.T("Tools and next steps", "Herramientas y próximos pasos")</p>
+    <a href="/search">@Lang.T("Search by ZIP, price, beds and baths →", "Buscar por ZIP, precio, habitaciones y baños →")</a>
+    <a href="/qualify">@Lang.T("Estimate buying power →", "Estimar poder de compra →")</a>
+    <a href="/partners">@Lang.T("Specialist network →", "Red de especialistas →")</a>
+    <a href="tel:@SiteInfo.PhoneTel">@Lang.T("Call Manuela →", "Llamar a Manuela →")</a>
+</section>
+<section class="detailFaq">
+    <p class="eyebrow">FAQ</p>
+    <h2>@Lang.T("Open, direct answers.", "Respuestas abiertas y directas.")</h2>
+    <div class="faqOpen">
+        <article><h3>@Lang.T("How much is my home worth?", "¿Cuánto vale mi casa?")</h3><p>@Lang.T("A useful estimate needs condition, improvements, exact location and current comps.", "Una estimación útil necesita condición, mejoras, ubicación exacta y comparables actuales.")</p></article>
+        <article><h3>@Lang.T("Should I repair everything?", "¿Debo reparar todo?")</h3><p>@Lang.T("No. Prioritize safety, presentation, cost and likely impact on negotiation.", "No. Se priorizan seguridad, presentación, costo y posible impacto en negociación.")</p></article>
+    </div>
+</section>
+<section class="detailConsult" id="consult">
+    <div>
+        <p class="eyebrow">@Lang.T("Bilingual consultation", "Consulta bilingüe")</p>
+        <h2>@Lang.T("Start with the property and your ideal date.", "Comienza con la propiedad y tu fecha ideal.")</h2>
+        <p>@Lang.T("The form identifies your situation so follow-up is specific. It is a real estate consultation, not a credit application.", "El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.")</p>
+    </div>
+    <form class="intake" method="post" action="/leads/intake">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="source" value="sellers" />
+        <input type="hidden" name="goal" value="sellers" />
+        <label>@Lang.T("Full name", "Nombre completo")<input required autocomplete="name" name="name" /></label>
+        <div class="formGrid">
+            <label>Email<input type="email" required autocomplete="email" name="email" /></label>
+            <label>@Lang.T("Phone", "Teléfono")<input type="tel" required autocomplete="tel" name="phone" /></label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Language", "Idioma")
+                <select name="language">
+                    @if (Lang.IsSpanish) { <option selected>Español</option><option>English</option> }
+                    else { <option>Español</option><option selected>English</option> }
+                </select>
+            </label>
+            <label>@Lang.T("Timeline", "Plazo")
+                <select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>@Lang.T("Exploring", "Explorando")</option></select>
+            </label>
+        </div>
+        <label>@Lang.T("Property address", "Dirección de la propiedad")<input required placeholder="Street, city, ZIP" name="area" /></label>
+        <label>@Lang.T("Main goal", "Objetivo principal")
+            <select name="budget">
+                <option>@Lang.T("Learn the value and prepare a CMA", "Conocer el valor y preparar un CMA")</option>
+                <option>@Lang.T("Sell soon", "Vender pronto")</option>
+                <option>@Lang.T("Buy and sell", "Comprar y vender")</option>
+                <option>@Lang.T("Investment property", "Propiedad de inversión")</option>
+            </select>
+        </label>
+        <label>@Lang.T("Most important thing Manuela should know", "Lo más importante que Manuela debe saber")
+            <textarea name="notes" rows="4" placeholder="@Lang.T("Condition, improvements, mortgage, next destination or main concern…", "Condición, mejoras, hipoteca, próximo destino o preocupación principal…")"></textarea>
+        </label>
+        <label class="consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>@Lang.T("I authorize Manuela Ruiz to contact me. South Carolina inquiries are coordinated with a professional who holds the applicable license.", "Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.")</span>
+        </label>
+        <button class="btn primary">@Lang.T("Send consultation", "Enviar consulta")</button>
+    </form>
+</section>
 </div>

@@ -2,6 +2,110 @@
     ViewData["Title"] = Lang.T("New construction in Charlotte | Manuela Ruiz", "Nueva construcción en Charlotte | Manuela Ruiz");
 }
 <div class="detailPage">
-<section class="detailHero"><p class="eyebrow">Nueva construcción · Charlotte NC</p><h1>El representante del builder trabaja para el builder. Manuela trabaja tu estrategia.</h1><p>Comparamos comunidades, inventario rápido, lotes, incentivos, lender del builder y costo total. Luego damos seguimiento a contrato, selecciones, etapas, inspecciones y entrega.</p><div class="actions"><a class="btn primary" href="#consult">Preparar mi consulta</a><a class="btn ghost" href="tel:+17048308486">704-830-8486</a></div></section><section class="detailContext"><div><p class="eyebrow">Cómo te ayuda Manuela</p><h2>El proceso del builder también requiere estrategia</h2><p>El precio base rara vez cuenta toda la historia. Lote, upgrades, incentivos, lender, HOA, impuestos, inspecciones y garantía deben evaluarse juntos para comparar correctamente una casa nueva con una reventa.</p></div><ul><li><span>✓</span>Representación antes de visitar al builder</li><li><span>✓</span>Costo total con lote e incentivos</li><li><span>✓</span>Seguimiento remoto con fotos e hitos</li><li><span>✓</span>Pre-drywall, final, punch list y garantía</li></ul></section><section class="detailSteps"><p class="eyebrow">Proceso paso a paso</p><h2>Qué hacemos y por qué importa.</h2><div><article><span>01</span><h3>Comparar comunidades</h3><p>Ubicación, precio base, lot premiums, HOA, impuestos y plazo.</p></article><article><span>02</span><h3>Separar precio e incentivos</h3><p>Créditos y buy-downs se evalúan junto con tasa, APR y costos.</p></article><article><span>03</span><h3>Revisar contrato</h3><p>Los contratos del builder pueden diferir de una reventa y tener plazos propios.</p></article><article><span>04</span><h3>Monitorear construcción</h3><p>Fotos, hitos, cambios y comunicación cuando compras desde lejos.</p></article><article><span>05</span><h3>Inspecciones independientes</h3><p>Consulta sobre pre-drywall, final y sistemas específicos; disponibilidad depende del proyecto.</p></article><article><span>06</span><h3>Orientación y cierre</h3><p>Lista de pendientes, garantía del builder, recorrido y documentos finales.</p></article></div></section><section class="detailCheck"><div><p class="eyebrow">Prepárate</p><h2>Trae estas respuestas a la conversación.</h2></div><ul><li>✓ Precio base más upgrades y lot premium</li><li>✓ Incentivo condicionado al lender del builder</li><li>✓ Fecha estimada y derechos por retrasos</li><li>✓ Inspecciones permitidas y garantía</li></ul></section><section class="detailLinks"><p class="eyebrow">Herramientas y próximos pasos</p><a href="/search">Buscar por ZIP, precio, habitaciones y baños →</a><a href="/qualify">Estimar poder de compra →</a><a href="/buyers">Guía de compradores →</a><a href="/partners">Red de especialistas →</a></section><section class="detailFaq"><p class="eyebrow">FAQ</p><h2>Respuestas abiertas y directas.</h2><div class="faqOpen"><article><h3>¿Necesito Realtor si compro del builder?</h3><p>El representante del sitio representa al builder. Un agente del comprador puede ayudarte a evaluar el contrato, opciones y proceso según el acuerdo aplicable.</p></article><article><h3>¿Los incentivos siempre son la mejor opción?</h3><p>No necesariamente. Compara costo total, APR, precio, upgrades y condiciones.</p></article></div></section><section class="detailConsult" id="consult"><div><p class="eyebrow">Consulta bilingüe</p><h2>Cuéntale a Manuela dónde estás hoy.</h2><p>El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.</p></div><form class="intake" method="post" action="/leads/intake">
-@Html.AntiForgeryToken()<input type="hidden" name="source" value="new-construction"/><input type="hidden" name="goal" value="new-construction"/><label>Nombre completo<input required="" autoComplete="name" name="name"/></label><div class="formGrid"><label>Email<input type="email" required="" autoComplete="email" name="email"/></label><label>Teléfono<input type="tel" required="" autoComplete="tel" name="phone"/></label></div><div class="formGrid"><label>Idioma<select name="language"><option>Español</option><option>English</option></select></label><label>Plazo<select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Explorando</option></select></label></div><div class="formGrid"><label>Documento financiero<select name="financing"><option>Social Security</option><option>ITIN</option><option>No sé</option></select></label><label>Presupuesto<select name="budget"><option>$150k–$250k</option><option>$250k–$350k</option><option>$350k–$500k</option><option>$500k–$750k</option><option>$750k+</option><option>Necesito calcularlo</option></select></label></div><label>Ciudad o zona objetivo<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area"/></label><label>Lo más importante que Manuela debe saber<textarea name="notes" rows="4" placeholder="Trabajo, familia, condición, espacios, fecha o preocupación principal…"></textarea></label><label class="consent"><input required="" type="checkbox" name="consent" value="yes"/><span>Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.</span></label><button class="btn primary">Enviar consulta</button></form></section>
+<section class="detailHero">
+    <p class="eyebrow">@Lang.T("New construction · Charlotte NC", "Nueva construcción · Charlotte NC")</p>
+    <h1>@Lang.T("The builder's representative works for the builder. Manuela works your strategy.", "El representante del builder trabaja para el builder. Manuela trabaja tu estrategia.")</h1>
+    <p>@Lang.T("We compare communities, quick inventory, lots, incentives, the builder's lender and total cost. Then we follow contract, selections, stages, inspections and delivery.", "Comparamos comunidades, inventario rápido, lotes, incentivos, lender del builder y costo total. Luego damos seguimiento a contrato, selecciones, etapas, inspecciones y entrega.")</p>
+    <div class="actions">
+        <a class="btn primary" href="#consult">@Lang.T("Prepare my consultation", "Preparar mi consulta")</a>
+        <a class="btn ghost" href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
+    </div>
+</section>
+<section class="detailContext">
+    <div>
+        <p class="eyebrow">@Lang.T("How Manuela helps you", "Cómo te ayuda Manuela")</p>
+        <h2>@Lang.T("The builder's process also needs a strategy", "El proceso del builder también requiere estrategia")</h2>
+        <p>@Lang.T("Base price rarely tells the whole story. Lot, upgrades, incentives, lender, HOA, taxes, inspections and warranty should be evaluated together to compare a new home correctly with a resale.", "El precio base rara vez cuenta toda la historia. Lote, upgrades, incentivos, lender, HOA, impuestos, inspecciones y garantía deben evaluarse juntos para comparar correctamente una casa nueva con una reventa.")</p>
+    </div>
+    <ul>
+        <li><span>✓</span>@Lang.T("Representation before visiting the builder", "Representación antes de visitar al builder")</li>
+        <li><span>✓</span>@Lang.T("Total cost with lot and incentives", "Costo total con lote e incentivos")</li>
+        <li><span>✓</span>@Lang.T("Remote follow-up with photos and milestones", "Seguimiento remoto con fotos e hitos")</li>
+        <li><span>✓</span>@Lang.T("Pre-drywall, final, punch list and warranty", "Pre-drywall, final, punch list y garantía")</li>
+    </ul>
+</section>
+<section class="detailSteps">
+    <p class="eyebrow">@Lang.T("Step-by-step process", "Proceso paso a paso")</p>
+    <h2>@Lang.T("What we do and why it matters.", "Qué hacemos y por qué importa.")</h2>
+    <div>
+        <article><span>01</span><h3>@Lang.T("Compare communities", "Comparar comunidades")</h3><p>@Lang.T("Location, base price, lot premiums, HOA, taxes and timeline.", "Ubicación, precio base, lot premiums, HOA, impuestos y plazo.")</p></article>
+        <article><span>02</span><h3>@Lang.T("Separate price and incentives", "Separar precio e incentivos")</h3><p>@Lang.T("Credits and buy-downs are evaluated alongside rate, APR and costs.", "Créditos y buy-downs se evalúan junto con tasa, APR y costos.")</p></article>
+        <article><span>03</span><h3>@Lang.T("Review the contract", "Revisar contrato")</h3><p>@Lang.T("Builder contracts can differ from a resale and have their own timelines.", "Los contratos del builder pueden diferir de una reventa y tener plazos propios.")</p></article>
+        <article><span>04</span><h3>@Lang.T("Monitor construction", "Monitorear construcción")</h3><p>@Lang.T("Photos, milestones, changes and communication when you buy from afar.", "Fotos, hitos, cambios y comunicación cuando compras desde lejos.")</p></article>
+        <article><span>05</span><h3>@Lang.T("Independent inspections", "Inspecciones independientes")</h3><p>@Lang.T("Ask about pre-drywall, final and specific systems; availability depends on the project.", "Consulta sobre pre-drywall, final y sistemas específicos; disponibilidad depende del proyecto.")</p></article>
+        <article><span>06</span><h3>@Lang.T("Orientation and closing", "Orientación y cierre")</h3><p>@Lang.T("Punch list, builder warranty, walkthrough and final documents.", "Lista de pendientes, garantía del builder, recorrido y documentos finales.")</p></article>
+    </div>
+</section>
+<section class="detailCheck">
+    <div>
+        <p class="eyebrow">@Lang.T("Get ready", "Prepárate")</p>
+        <h2>@Lang.T("Bring these answers to the conversation.", "Trae estas respuestas a la conversación.")</h2>
+    </div>
+    <ul>
+        <li>✓ @Lang.T("Base price plus upgrades and lot premium", "Precio base más upgrades y lot premium")</li>
+        <li>✓ @Lang.T("Incentive conditioned on the builder's lender", "Incentivo condicionado al lender del builder")</li>
+        <li>✓ @Lang.T("Estimated date and rights for delays", "Fecha estimada y derechos por retrasos")</li>
+        <li>✓ @Lang.T("Allowed inspections and warranty", "Inspecciones permitidas y garantía")</li>
+    </ul>
+</section>
+<section class="detailLinks">
+    <p class="eyebrow">@Lang.T("Tools and next steps", "Herramientas y próximos pasos")</p>
+    <a href="/search">@Lang.T("Search by ZIP, price, beds and baths →", "Buscar por ZIP, precio, habitaciones y baños →")</a>
+    <a href="/qualify">@Lang.T("Estimate buying power →", "Estimar poder de compra →")</a>
+    <a href="/buyers">@Lang.T("Buyer guide →", "Guía de compradores →")</a>
+    <a href="/partners">@Lang.T("Specialist network →", "Red de especialistas →")</a>
+</section>
+<section class="detailFaq">
+    <p class="eyebrow">FAQ</p>
+    <h2>@Lang.T("Open, direct answers.", "Respuestas abiertas y directas.")</h2>
+    <div class="faqOpen">
+        <article><h3>@Lang.T("Do I need a Realtor if I buy from the builder?", "¿Necesito Realtor si compro del builder?")</h3><p>@Lang.T("The site representative represents the builder. A buyer's agent can help you evaluate the contract, options and process under the applicable agreement.", "El representante del sitio representa al builder. Un agente del comprador puede ayudarte a evaluar el contrato, opciones y proceso según el acuerdo aplicable.")</p></article>
+        <article><h3>@Lang.T("Are incentives always the best option?", "¿Los incentivos siempre son la mejor opción?")</h3><p>@Lang.T("Not necessarily. Compare total cost, APR, price, upgrades and conditions.", "No necesariamente. Compara costo total, APR, precio, upgrades y condiciones.")</p></article>
+    </div>
+</section>
+<section class="detailConsult" id="consult">
+    <div>
+        <p class="eyebrow">@Lang.T("Bilingual consultation", "Consulta bilingüe")</p>
+        <h2>@Lang.T("Tell Manuela where you are today.", "Cuéntale a Manuela dónde estás hoy.")</h2>
+        <p>@Lang.T("The form identifies your situation so follow-up is specific. It is a real estate consultation, not a credit application.", "El formulario identifica tu situación para que el seguimiento sea específico. Es una consulta inmobiliaria, no una solicitud de crédito.")</p>
+    </div>
+    <form class="intake" method="post" action="/leads/intake">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="source" value="new-construction" />
+        <input type="hidden" name="goal" value="new-construction" />
+        <label>@Lang.T("Full name", "Nombre completo")<input required autocomplete="name" name="name" /></label>
+        <div class="formGrid">
+            <label>Email<input type="email" required autocomplete="email" name="email" /></label>
+            <label>@Lang.T("Phone", "Teléfono")<input type="tel" required autocomplete="tel" name="phone" /></label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Language", "Idioma")
+                <select name="language">
+                    @if (Lang.IsSpanish) { <option selected>Español</option><option>English</option> }
+                    else { <option>Español</option><option selected>English</option> }
+                </select>
+            </label>
+            <label>@Lang.T("Timeline", "Plazo")
+                <select name="timeline"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>@Lang.T("Exploring", "Explorando")</option></select>
+            </label>
+        </div>
+        <div class="formGrid">
+            <label>@Lang.T("Financing document", "Documento financiero")
+                <select name="financing"><option>Social Security</option><option>ITIN</option><option>@Lang.T("Not sure", "No sé")</option></select>
+            </label>
+            <label>@Lang.T("Budget", "Presupuesto")
+                <select name="budget"><option>$150k–$250k</option><option>$250k–$350k</option><option>$350k–$500k</option><option>$500k–$750k</option><option>$750k+</option><option>@Lang.T("I need to calculate it", "Necesito calcularlo")</option></select>
+            </label>
+        </div>
+        <label>@Lang.T("Target city or area", "Ciudad o zona objetivo")<input placeholder="Charlotte, Concord, Gastonia, Rock Hill…" name="area" /></label>
+        <label>@Lang.T("Most important thing Manuela should know", "Lo más importante que Manuela debe saber")
+            <textarea name="notes" rows="4" placeholder="@Lang.T("Community, lot, incentives, timeline or main concern…", "Comunidad, lote, incentivos, plazo o preocupación principal…")"></textarea>
+        </label>
+        <label class="consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>@Lang.T("I authorize Manuela Ruiz to contact me. South Carolina inquiries are coordinated with a professional who holds the applicable license.", "Autorizo que Manuela Ruiz me contacte. Las consultas de South Carolina se coordinan con un profesional que tenga la licencia aplicable.")</span>
+        </label>
+        <button class="btn primary">@Lang.T("Send consultation", "Enviar consulta")</button>
+    </form>
+</section>
 </div>
