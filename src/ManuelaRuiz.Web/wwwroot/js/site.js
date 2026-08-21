@@ -36,12 +36,14 @@
 
   // Mortgage calculator on home
   document.querySelectorAll("[data-mortgage-calc]").forEach((root) => {
-    const priceInput = root.querySelector('.moneyInput input[type="number"]');
-    const priceRange = root.querySelector('input[type="range"]');
-    const downSelect = root.querySelectorAll("select")[0];
-    const creditSelect = root.querySelectorAll("select")[1];
-    const termSelect = root.querySelectorAll("select")[2];
-    const hoaInput = root.querySelectorAll('input[type="number"]')[1];
+    const numberInputs = [...root.querySelectorAll(".calcControls input[type='number']")];
+    const priceInput = numberInputs[0];
+    const hoaInput = numberInputs[1];
+    const priceRange = root.querySelector(".calcControls input[type='range']");
+    const selects = root.querySelectorAll(".calcControls select");
+    const downSelect = selects[0];
+    const creditSelect = selects[1];
+    const termSelect = selects[2];
     const totalStrong = root.querySelector(".calcTotal strong");
     const totalSpan = root.querySelector(".calcTotal span");
     const downSmall = downSelect?.parentElement?.querySelector("small");
@@ -112,6 +114,7 @@
     const facts = result.querySelectorAll(".resultFacts b");
     const lowHidden = root.querySelector("[data-range-low]");
     const highHidden = root.querySelector("[data-range-high]");
+    const limitNote = result.querySelector(".limitNote");
 
     const sync = () => {
       const nums = [...deck.querySelectorAll('input[type="number"]')].map((i) => Number(i.value) || 0);
@@ -123,24 +126,43 @@
       const selects = deck.querySelectorAll("select");
       const downPct = Number(selects[0]?.value || 5);
       const dti = Number(selects[1]?.value || 36) / 100;
-      const maxHousing = Math.max(income * dti - debts - hoa, 0);
-      // allocate ~70% of housing to PI after tax/ins/pmi rough loop
+      // Budget for PITI+HOA. Do NOT subtract HOA here — it is included in monthly housing below.
+      const maxHousing = Math.max(income * dti - debts, 0);
+
       let home = 0;
-      let pi = 0;
       let down = 0;
-      for (let guess = 50000; guess <= 2000000; guess += 1000) {
+      let limitedBy = "income";
+      const tryGuess = (guess) => {
         const d = guess * downPct / 100;
+        if (d > funds) return "funds";
         const loan = guess - d;
         const p = payment(loan, rate, 30);
         const tax = (guess * 0.01) / 12;
         const ins = (guess * 0.0045) / 12;
         const pmi = downPct < 20 ? (loan * 0.007) / 12 : 0;
-        if (p + tax + ins + pmi + hoa <= maxHousing && d <= funds) {
+        return (p + tax + ins + pmi + hoa) <= maxHousing ? "ok" : "income";
+      };
+
+      for (let guess = 50000; guess <= 2000000; guess += 1000) {
+        const status = tryGuess(guess);
+        if (status === "ok") {
           home = guess;
-          pi = p;
-          down = d;
-        } else if (d > funds) break;
+          down = guess * downPct / 100;
+        } else {
+          limitedBy = status;
+          break;
+        }
       }
+      if (home > 0) {
+        for (let guess = home + 100; guess <= home + 900; guess += 100) {
+          if (tryGuess(guess) === "ok") {
+            home = guess;
+            down = guess * downPct / 100;
+          } else break;
+        }
+      }
+      if (home === 0 && tryGuess(50000) === "funds") limitedBy = "funds";
+
       const low = Math.round(home * 0.85);
       const high = Math.round(home);
       const closing = Math.round(high * 0.03);
@@ -150,6 +172,31 @@
       if (facts[2]) facts[2].textContent = money(closing);
       if (lowHidden) lowHidden.value = String(low);
       if (highHidden) highHidden.value = String(high);
+
+      if (limitNote) {
+        const isEs = document.documentElement.lang?.startsWith("es");
+        const title = limitNote.querySelector("b");
+        const body = limitNote.querySelector("p");
+        if (limitedBy === "funds") {
+          if (title) title.textContent = isEs
+            ? "Hoy limitan más los fondos disponibles para el enganche."
+            : "Available down-payment funds limit more today.";
+          if (body) body.textContent = isEs
+            ? "Eso indica qué pregunta llevar primero al lender. Programas, crédito, reservas, impuestos, seguro, HOA y documentación pueden cambiar el resultado."
+            : "That shows which question to take to the lender first. Programs, credit, reserves, taxes, insurance, HOA and documents can change the result.";
+          limitNote.classList.remove("income");
+          limitNote.classList.add("funds");
+        } else {
+          if (title) title.textContent = isEs
+            ? "Hoy limita más la relación ingreso/deuda."
+            : "Today the income/debt ratio limits more.";
+          if (body) body.textContent = isEs
+            ? "Eso indica qué pregunta llevar primero al lender. Programas, crédito, reservas, impuestos, seguro, HOA y documentación pueden cambiar el resultado."
+            : "That shows which question to take to the lender first. Programs, credit, reserves, taxes, insurance, HOA and documents can change the result.";
+          limitNote.classList.remove("funds");
+          limitNote.classList.add("income");
+        }
+      }
     };
 
     inputs.forEach((el) => {
