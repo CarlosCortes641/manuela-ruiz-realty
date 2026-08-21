@@ -29,10 +29,17 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.Use(async (context, next) =>
 {
-    var code = string.Equals(context.Request.Cookies[SiteLanguage.CookieName], "en", StringComparison.OrdinalIgnoreCase)
-        ? "en-US"
-        : "es-US";
-    var culture = CultureInfo.GetCultureInfo(code);
+    var wantEn = string.Equals(context.Request.Cookies[SiteLanguage.CookieName], "en", StringComparison.OrdinalIgnoreCase);
+    CultureInfo culture;
+    try
+    {
+        culture = CultureInfo.GetCultureInfo(wantEn ? "en-US" : "es-US");
+    }
+    catch (CultureNotFoundException)
+    {
+        culture = CultureInfo.GetCultureInfo(wantEn ? "en" : "es");
+    }
+
     CultureInfo.CurrentCulture = culture;
     CultureInfo.CurrentUICulture = culture;
     await next();

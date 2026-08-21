@@ -31,7 +31,7 @@ Abre `http://localhost:5128`.
 
 1. Repo en GitHub: `CarlosCortes641/manuela-ruiz-realty`
 2. En [Render](https://dashboard.render.com/blueprint/new?repo=https://github.com/CarlosCortes641/manuela-ruiz-realty): Blueprint Name `manuela-ruiz-realty` → **Apply**
-3. Si falla por memoria (exit 139): en el servicio → **Manual Deploy** → **Clear build cache & deploy**
+3. Si falla por memoria (exit 139): en el servicio → **Manual Deploy** → **Clear build cache & deploy**. El runtime usa Debian slim (no Alpine) para evitar segfaults musl en el plan free.
 
 El plan free se duerme sin tráfico; el primer request puede tardar ~30–60s.
 

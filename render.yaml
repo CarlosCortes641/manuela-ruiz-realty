@@ -14,5 +14,9 @@ services:
         value: "0"
       - key: DOTNET_EnableDiagnostics
         value: "0"
+      - key: DOTNET_GCHeapHardLimit
+        value: "234881024"
       - key: DOTNET_SYSTEM_GLOBALIZATION_INVARIANT
+        value: "false"
+      - key: ASPNETCORE_hostBuilder__reloadConfigOnChange
         value: "false"
