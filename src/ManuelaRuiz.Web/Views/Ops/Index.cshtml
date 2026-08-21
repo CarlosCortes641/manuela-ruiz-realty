@@ -1,0 +1,50 @@
+@model IReadOnlyList<ManuelaRuiz.Web.Demo.LeadRecord>
+@{
+    ViewData["Title"] = Lang.T("Ops · Leads (sandbox)", "Ops · Leads (sandbox)");
+}
+<section class="opsPage">
+    <p class="eyebrow">@Lang.T("Internal board", "Tablero interno")</p>
+    <h1>@Lang.T("Leads in memory", "Leads en memoria")</h1>
+    <p class="sectionLead">@Lang.T("Demo only. Restarting the app clears this list. No email, CRM, or credit pull.", "Solo demo. Reiniciar la app borra esta lista. Sin email, CRM ni credit pull.")</p>
+    @if (Model.Count == 0)
+    {
+        <p>@Lang.T("No leads yet. Submit a search, intake, or qualify form on the site.", "Todavía no hay leads. Envía un formulario de búsqueda, consulta o qualify.")</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>@Lang.T("When", "Cuándo")</th>
+                    <th>@Lang.T("Kind", "Tipo")</th>
+                    <th>@Lang.T("Contact", "Contacto")</th>
+                    <th>@Lang.T("Summary", "Resumen")</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var lead in Model)
+            {
+                <tr>
+                    <td><code>@lead.Id</code></td>
+                    <td>@lead.CreatedAt.ToLocalTime().ToString("g")</td>
+                    <td>@lead.Kind</td>
+                    <td>
+                        <strong>@lead.Name</strong><br />
+                        <a href="mailto:@lead.Email">@lead.Email</a><br />
+                        <a href="tel:@lead.Phone">@lead.Phone</a><br />
+                        <small>@lead.Language · @lead.Timeline</small>
+                    </td>
+                    <td>
+                        @lead.Summary
+                        @if (lead.Fields.TryGetValue("notes", out var notes) && !string.IsNullOrWhiteSpace(notes))
+                        {
+                            <br /><small>@notes</small>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+</section>

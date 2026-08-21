@@ -1,0 +1,96 @@
+﻿@{
+    var title = ViewData["Title"] as string ?? Lang.T(
+        "Manuela Ruiz | Bilingual Realtor in Charlotte NC",
+        "Manuela Ruiz | Realtor bilingüe en Charlotte NC");
+    var returnUrl = Context.Request.Path + Context.Request.QueryString;
+    var desc = Lang.T(
+        "Bilingual Realtor in Charlotte, NC for buyers, ITIN families, sellers, relocation, new construction and investment. Search homes and estimate your buying range.",
+        "Realtor bilingüe en Charlotte, NC para compradores, familias con ITIN, vendedores, relocation, nueva construcción e inversión. Busca propiedades y estima tu rango de compra.");
+}
+<!DOCTYPE html>
+<html lang="@Lang.HtmlLang">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@title</title>
+    <meta name="description" content="@desc" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <a class="skip" href="#top">@Lang.T("Skip to content", "Saltar al contenido")</a>
+    <div class="sandboxBanner">
+        <strong>@Lang.T("Sandbox demo", "Demo sandbox")</strong>
+        · @Lang.T("No live CRM, no credit pull, no loan application.", "Sin CRM productivo, sin credit pull, sin solicitud de préstamo.")
+        · <a href="/ops">@Lang.T("Internal leads", "Leads internos")</a>
+    </div>
+    <header>
+        <a class="brand" href="/">
+            <i>MR</i>
+            <span>
+                <b>Manuela Ruiz</b>
+                <small>NC Broker #@SiteInfo.License</small>
+            </span>
+        </a>
+        <nav>
+            <a href="/search">@Lang.T("Search homes", "Buscar casas")</a>
+            <a href="/qualify">@Lang.T("How much can I buy?", "¿Cuánto puedo comprar?")</a>
+            <a href="/buyers">@Lang.T("Buyers", "Compradores")</a>
+            <a href="/sellers">@Lang.T("Sellers", "Vendedores")</a>
+            <a href="/relocation">Relocation</a>
+            <a href="/areas">@Lang.T("Cities", "Ciudades")</a>
+            <a href="/sold">@Lang.T("Properties", "Propiedades")</a>
+            <a href="/programs">@Lang.T("Programs", "Programas")</a>
+        </nav>
+        <details class="mobileMenu">
+            <summary aria-label="@Lang.T("Open navigation", "Abrir navegación")">☰</summary>
+            <div>
+                <a href="/search">@Lang.T("Search homes", "Buscar casas")</a>
+                <a href="/qualify">@Lang.T("Calculator", "Calculadora")</a>
+                <a href="/buyers">@Lang.T("Buyers", "Compradores")</a>
+                <a href="/sellers">@Lang.T("Sellers", "Vendedores")</a>
+                <a href="/relocation">Relocation</a>
+                <a href="/areas">@Lang.T("Cities", "Ciudades")</a>
+                <a href="/sold">@Lang.T("Properties", "Propiedades")</a>
+                <a href="/programs">@Lang.T("Programs", "Programas")</a>
+            </div>
+        </details>
+        <a class="lang btn ghost" style="padding:10px 15px;border-radius:99px;border:1px solid #bdc9c1;font-weight:800"
+           href="@Url.Action("Set", "Language", new { code = Lang.OtherCode, returnUrl })">@Lang.ToggleLabel</a>
+    </header>
+
+    <main>
+        @if (TempData["LeadOk"] != null)
+        {
+            <p class="formStatus" style="margin:0;border-radius:0;text-align:center">
+                @Lang.T("Thanks — Manuela received your request. This sandbox only stores it in memory.", "Gracias — Manuela recibió tu solicitud. Este sandbox solo la guarda en memoria.")
+            </p>
+        }
+        @if (TempData["LeadError"] != null)
+        {
+            <p class="formStatus error" style="margin:0;border-radius:0;text-align:center">
+                @Lang.T("Please complete the required fields and try again.", "Completa los campos requeridos e inténtalo de nuevo.")
+            </p>
+        }
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="brand">
+            <i>MR</i>
+            <span>
+                <b>Manuela Ruiz</b>
+                <small>@SiteInfo.Brokerage · NC #@SiteInfo.License</small>
+            </span>
+        </div>
+        <p>© @DateTime.UtcNow.Year · Equal Housing Opportunity · @Lang.T("Educational information; not legal, tax, credit, or insurance advice.", "Información educativa; no asesoría legal, fiscal, crediticia ni de seguros.")</p>
+        <div style="display:grid;gap:8px;justify-items:end">
+            <a href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
+            <a href="mailto:@SiteInfo.Email">@SiteInfo.Email</a>
+            <a href="/resources">@Lang.T("AI Knowledge Center", "Centro de conocimiento")</a>
+            <a href="/ops">@Lang.T("Ops / leads", "Ops / leads")</a>
+        </div>
+    </footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
