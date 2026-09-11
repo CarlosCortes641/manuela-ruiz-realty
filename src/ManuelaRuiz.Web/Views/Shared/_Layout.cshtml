@@ -41,21 +41,24 @@
             <a href="/sold">@Lang.T("Properties", "Propiedades")</a>
             <a href="/programs">@Lang.T("Programs", "Programas")</a>
         </nav>
-        <details class="mobileMenu">
-            <summary aria-label="@Lang.T("Open navigation", "Abrir navegación")">☰</summary>
-            <div>
-                <a href="/search">@Lang.T("Search homes", "Buscar casas")</a>
-                <a href="/qualify">@Lang.T("Calculator", "Calculadora")</a>
-                <a href="/buyers">@Lang.T("Buyers", "Compradores")</a>
-                <a href="/sellers">@Lang.T("Sellers", "Vendedores")</a>
-                <a href="/relocation">@Lang.T("Relocation", "Relocation")</a>
-                <a href="/areas">@Lang.T("Cities", "Ciudades")</a>
-                <a href="/sold">@Lang.T("Properties", "Propiedades")</a>
-                <a href="/programs">@Lang.T("Programs", "Programas")</a>
-            </div>
-        </details>
-        <a class="lang btn ghost" style="padding:10px 15px;border-radius:99px;border:1px solid #bdc9c1;font-weight:800"
-           href="@Url.Action("Set", "Language", new { code = Lang.OtherCode, returnUrl })">@Lang.ToggleLabel</a>
+        <div class="headerActions">
+            <a class="lang btn ghost"
+               href="@Url.Action("Set", "Language", new { code = Lang.OtherCode, returnUrl })"
+               aria-label="@Lang.T("Switch to Spanish", "Cambiar a inglés")">@Lang.ToggleLabel</a>
+            <details class="mobileMenu">
+                <summary aria-label="@Lang.T("Open navigation", "Abrir navegación")">☰</summary>
+                <div>
+                    <a href="/search">@Lang.T("Search homes", "Buscar casas")</a>
+                    <a href="/qualify">@Lang.T("Calculator", "Calculadora")</a>
+                    <a href="/buyers">@Lang.T("Buyers", "Compradores")</a>
+                    <a href="/sellers">@Lang.T("Sellers", "Vendedores")</a>
+                    <a href="/relocation">@Lang.T("Relocation", "Relocation")</a>
+                    <a href="/areas">@Lang.T("Cities", "Ciudades")</a>
+                    <a href="/sold">@Lang.T("Properties", "Propiedades")</a>
+                    <a href="/programs">@Lang.T("Programs", "Programas")</a>
+                </div>
+            </details>
+        </div>
     </header>
 
     <main>
