@@ -74,20 +74,44 @@
         @RenderBody()
     </main>
 
+    @await Html.PartialAsync("_SiteClosing")
+
     <footer>
-        <div class="brand">
-            <i>MR</i>
-            <span>
-                <b>Manuela Ruiz</b>
-                <small>@SiteInfo.Brokerage · NC #@SiteInfo.License</small>
-            </span>
+        <div class="footerTop">
+            <div class="footerBrand">
+                <strong>Manuela Ruiz</strong>
+                <p>@Lang.T("Bilingual Realtor in Charlotte, NC — buyers, sellers, relocation, first-time buyers, ITIN conversations and new construction.", "Realtor bilingüe en Charlotte, NC — compradores, vendedores, relocation, primera vivienda, conversaciones ITIN y nueva construcción.")</p>
+                <a class="footerEmail" href="mailto:@SiteInfo.Email">@SiteInfo.Email</a>
+            </div>
+            <div class="footerLinks">
+                <div>
+                    <p>@Lang.T("Explore", "Explorar")</p>
+                    <a href="/#start">@Lang.T("Start here", "Empieza aquí")</a>
+                    <a href="/search">@Lang.T("Search homes", "Buscar casas")</a>
+                    <a href="/qualify">@Lang.T("Buying power", "Poder de compra")</a>
+                    <a href="/sold">@Lang.T("Properties", "Propiedades")</a>
+                    <a href="/programs">@Lang.T("Programs", "Programas")</a>
+                </div>
+                <div>
+                    <p>@Lang.T("Guides", "Guías")</p>
+                    <a href="/buyers">@Lang.T("Buyers", "Compradores")</a>
+                    <a href="/sellers">@Lang.T("Sellers", "Vendedores")</a>
+                    <a href="/relocation">Relocation</a>
+                    <a href="/first-time-buyers">@Lang.T("First-time buyers", "Primera vivienda")</a>
+                    <a href="/areas">@Lang.T("Cities", "Ciudades")</a>
+                </div>
+                <div>
+                    <p>@Lang.T("Contact", "Contacto")</p>
+                    <a href="tel:@SiteInfo.PhoneTel">@Lang.T("Call", "Llamar") @SiteInfo.PhoneDisplay</a>
+                    <a href="mailto:@SiteInfo.Email">Email</a>
+                    <a href="/resources">@Lang.T("Knowledge center", "Centro de conocimiento")</a>
+                    <a href="/ops">@Lang.T("Ops / leads", "Ops / leads")</a>
+                </div>
+            </div>
         </div>
-        <p>© @DateTime.UtcNow.Year · Equal Housing Opportunity · @Lang.T("Educational information; not legal, tax, credit, or insurance advice.", "Información educativa; no asesoría legal, fiscal, crediticia ni de seguros.")</p>
-        <div style="display:grid;gap:8px;justify-items:end">
-            <a href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
-            <a href="mailto:@SiteInfo.Email">@SiteInfo.Email</a>
-            <a href="/resources">@Lang.T("AI Knowledge Center", "Centro de conocimiento")</a>
-            <a href="/ops">@Lang.T("Ops / leads", "Ops / leads")</a>
+        <div class="footerBottom">
+            <span>© @DateTime.UtcNow.Year Manuela Ruiz · @SiteInfo.Brokerage · NC #@SiteInfo.License · Equal Housing Opportunity</span>
+            <span>@Lang.T("Sandbox demo. No live CRM, no credit pull, no loan application. Educational information only.", "Demo sandbox. Sin CRM productivo, sin credit pull, sin solicitud de préstamo. Solo información educativa.")</span>
         </div>
     </footer>
     <script src="~/js/site.js" asp-append-version="true"></script>

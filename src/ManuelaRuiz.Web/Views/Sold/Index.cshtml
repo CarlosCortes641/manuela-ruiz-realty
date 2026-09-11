@@ -267,13 +267,11 @@
     </div>
     <p>@Lang.T("These are general ranges, not promises. Contract, due diligence, inspection, appraisal, title, loan, builder and repairs can change the calendar.", "Son rangos generales, no promesas. Contrato, due diligence, inspección, appraisal, título, préstamo, builder y reparaciones pueden cambiar el calendario.")</p>
 </section>
-<section class="soldCta">
-    <p class="eyebrow">Charlotte · Gastonia · Mooresville · Shelby · North Carolina</p>
-    <h2>@Lang.T("Your story can be next — with a plan you understand.", "Tu historia puede ser la próxima—con un plan que entiendas.")</h2>
-    <p>@Lang.T("First home, ITIN, new construction, investment, relocation or sale: start with a bilingual real estate consultation.", "Primera casa, ITIN, nueva construcción, inversión, relocation o venta: empieza con una consulta inmobiliaria bilingüe.")</p>
-    <div class="actions">
-        <a class="btn light" href="/#start">@Lang.T("Start my consultation", "Comenzar mi consulta")</a>
-        <a class="btn outlineLight" href="tel:@SiteInfo.PhoneTel">@SiteInfo.PhoneDisplay</a>
-    </div>
-</section>
+@{
+    ViewData["ClosingTitle"] = Lang.T("Your story can be next — with a plan you understand.", "Tu historia puede ser la próxima—con un plan que entiendas.");
+    ViewData["ClosingBody"] = Lang.T("First home, ITIN, new construction, investment, relocation or sale: start with a bilingual real estate consultation.", "Primera casa, ITIN, nueva construcción, inversión, relocation o venta: empieza con una consulta inmobiliaria bilingüe.");
+    ViewData["ClosingPrimary"] = Lang.T("Start my consultation", "Comenzar mi consulta");
+    ViewData["ClosingPrimaryHref"] = "/#start";
+    ViewData["ClosingMicro"] = "Charlotte · Gastonia · Mooresville · Shelby · North Carolina";
+}
 </div>
