@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("New construction in Charlotte | Manuela Ruiz", "Nueva construcción en Charlotte | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "New construction in Charlotte: base price, lot premium, upgrades, HOA and incentives explained with an independent bilingual Realtor.",
+        "Nueva construcción en Charlotte: precio base, lot premium, upgrades, HOA e incentivos explicados con una Realtor bilingüe independiente.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("New construction", "Nueva construcción"), "/new-construction")
+    };
 }
 <div class="detailPage">
 <section class="detailHero">

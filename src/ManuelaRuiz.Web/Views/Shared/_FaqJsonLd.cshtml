@@ -1,0 +1,12 @@
+@{
+    var faqs = ViewData["Faqs"] as IReadOnlyList<(string Question, string Answer)>;
+    if (faqs is null || faqs.Count == 0)
+    {
+        return;
+    }
+
+    var json = SeoJsonLd.FaqPage(faqs);
+}
+<script type="application/ld+json">
+@Html.Raw(json)
+</script>

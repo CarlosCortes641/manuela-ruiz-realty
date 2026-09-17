@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("Homebuying programs in Charlotte and North Carolina | Manuela Ruiz", "Programas para comprar casa en Charlotte y North Carolina | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Compare USDA, VA, NACA, HouseCharlotte, NC Home Advantage and first-time buyer options. Educational overview — a lender confirms eligibility.",
+        "Compara USDA, VA, NACA, HouseCharlotte, NC Home Advantage y opciones para first-time buyers. Resumen educativo — un lender confirma elegibilidad.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("Programs", "Programas"), "/programs")
+    };
 }
 <div class="programsPage">
 <section class="programHero">

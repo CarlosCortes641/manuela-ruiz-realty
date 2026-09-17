@@ -2,6 +2,18 @@
     ViewData["Title"] = Lang.T(
         "Manuela Ruiz | Bilingual Realtor in Charlotte NC",
         "Manuela Ruiz | Realtor bilingüe en Charlotte NC");
+    ViewData["MetaDescription"] = Lang.T(
+        "Bilingual Realtor in Charlotte, NC. Buy, sell, relocate or invest with clear guidance in Spanish or English — search, buying-power estimate and first-time buyer programs.",
+        "Realtor bilingüe en Charlotte, NC. Compra, vende, relocate o invierte con guía clara en español o inglés — búsqueda, estimador de poder de compra y programas para primera vivienda.");
+    ViewData["Faqs"] = new List<(string, string)>
+    {
+        (Lang.T("Can I buy a home with an ITIN?", "¿Puedo comprar casa con ITIN?"),
+         Lang.T("Some lenders consider ITIN borrowers. Approval is not automatic; documentation, rate, down payment and terms vary. Manuela helps organize the first conversation.", "Algunos prestamistas consideran compradores con ITIN. No es aprobación automática; documentación, tasa, pago inicial y términos varían. Manuela ayuda a organizar la primera conversación.")),
+        (Lang.T("Does 0% down payment mean $0 to close?", "¿0% de down payment significa $0 para cerrar?"),
+         Lang.T("Not always. Inspection, appraisal, prepaid items, reserves and other costs may still apply. Programs like USDA, VA, NACA and HouseCharlotte have different rules.", "No siempre. Pueden existir inspección, appraisal, prepagados, reservas y otros costos. Programas como USDA, VA, NACA y HouseCharlotte tienen reglas distintas.")),
+        (Lang.T("Is the buying-power calculator a pre-approval?", "¿La calculadora de poder de compra es una preaprobación?"),
+         Lang.T("No. It is an educational estimate based on income, debts, funds and assumptions. Only a lender can verify documents and issue a pre-approval.", "No. Es un estimador educativo basado en ingresos, deudas, fondos y supuestos. Solo un lender puede verificar documentos y emitir una preaprobación."))
+    };
     var langValue = Lang.IsSpanish ? "Español" : "English";
 }
 <section class="zeroDownBanner" id="zero-down">

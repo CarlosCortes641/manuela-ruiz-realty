@@ -32,12 +32,16 @@ public class SeoController : Controller
         var lastmod = DateTime.UtcNow.ToString("yyyy-MM-dd");
         var xml = new StringBuilder();
         xml.AppendLine("""<?xml version="1.0" encoding="UTF-8"?>""");
-        xml.AppendLine("""<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">""");
+        xml.AppendLine("""<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">""");
         foreach (var (path, priority, changeFreq) in PublicPages)
         {
             var loc = path == "/" ? baseUrl + "/" : baseUrl + path;
+            var escaped = System.Security.SecurityElement.Escape(loc);
             xml.AppendLine("  <url>");
-            xml.AppendLine($"    <loc>{System.Security.SecurityElement.Escape(loc)}</loc>");
+            xml.AppendLine($"    <loc>{escaped}</loc>");
+            xml.AppendLine($"    <xhtml:link rel=\"alternate\" hreflang=\"en-US\" href=\"{escaped}\" />");
+            xml.AppendLine($"    <xhtml:link rel=\"alternate\" hreflang=\"es-US\" href=\"{escaped}\" />");
+            xml.AppendLine($"    <xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"{escaped}\" />");
             xml.AppendLine($"    <lastmod>{lastmod}</lastmod>");
             xml.AppendLine($"    <changefreq>{changeFreq}</changefreq>");
             xml.AppendLine($"    <priority>{priority}</priority>");

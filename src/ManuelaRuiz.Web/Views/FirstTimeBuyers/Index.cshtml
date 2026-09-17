@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("First-time homebuyers in Charlotte | Manuela Ruiz", "Primera vivienda en Charlotte | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "First-time buyer path in Charlotte: programs, budget, search and closing explained in Spanish or English with Manuela Ruiz.",
+        "Camino de primera vivienda en Charlotte: programas, presupuesto, búsqueda y cierre explicados en español o inglés con Manuela Ruiz.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("First-time buyers", "Primera vivienda"), "/first-time-buyers")
+    };
 }
 <div class="detailPage">
 <section class="detailHero">

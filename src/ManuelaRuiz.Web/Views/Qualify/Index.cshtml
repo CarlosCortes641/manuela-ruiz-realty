@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("How much house can I afford in Charlotte? | Manuela Ruiz", "¿Cuánta casa puedo comprar en Charlotte? | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Educational buying-power calculator for Charlotte. Estimate a range from income, debts and funds — not a lender pre-approval.",
+        "Calculadora educativa de poder de compra para Charlotte. Estima un rango con ingresos, deudas y fondos — no es una preaprobación de lender.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("Buying power", "Poder de compra"), "/qualify")
+    };
     var langValue = Lang.IsSpanish ? "Español" : "English";
 }
 <section class="toolPageIntro">

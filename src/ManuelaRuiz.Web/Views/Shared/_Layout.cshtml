@@ -3,9 +3,18 @@
         "Manuela Ruiz | Bilingual Realtor in Charlotte NC",
         "Manuela Ruiz | Realtor bilingüe en Charlotte NC");
     var returnUrl = Context.Request.Path + Context.Request.QueryString;
-    var desc = Lang.T(
+    var desc = ViewData["MetaDescription"] as string ?? Lang.T(
         "Bilingual Realtor in Charlotte, NC for buyers, ITIN families, sellers, relocation, new construction and investment. Search homes and estimate your buying range.",
         "Realtor bilingüe en Charlotte, NC para compradores, familias con ITIN, vendedores, relocation, nueva construcción e inversión. Busca propiedades y estima tu rango de compra.");
+    var robots = ViewData["Robots"] as string ?? "index,follow,max-image-preview:large";
+    var siteUrl = PublicUrl.Base(Context.Request);
+    var path = Context.Request.Path.HasValue ? Context.Request.Path.Value! : "/";
+    if (string.IsNullOrEmpty(path)) { path = "/"; }
+    var canonical = path == "/" ? siteUrl + "/" : siteUrl + path;
+    var ogImage = ViewData["OgImage"] as string ?? siteUrl + "/img/manuela-ruiz.jpg";
+    var ogType = ViewData["OgType"] as string ?? "website";
+    var locale = Lang.IsSpanish ? "es_US" : "en_US";
+    var localeAlt = Lang.IsSpanish ? "en_US" : "es_US";
 }
 <!DOCTYPE html>
 <html lang="@Lang.HtmlLang">
@@ -14,7 +23,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@title</title>
     <meta name="description" content="@desc" />
+    <meta name="robots" content="@robots" />
+    <meta name="author" content="Manuela Ruiz" />
+    <meta name="geo.region" content="US-NC" />
+    <meta name="geo.placename" content="Charlotte" />
+    <meta name="geo.position" content="35.2271;-80.8431" />
+    <meta name="ICBM" content="35.2271, -80.8431" />
+    <meta name="theme-color" content="#1a3a4a" />
+    <link rel="canonical" href="@canonical" />
+    <link rel="alternate" hreflang="en-US" href="@canonical" />
+    <link rel="alternate" hreflang="es-US" href="@canonical" />
+    <link rel="alternate" hreflang="x-default" href="@canonical" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <meta property="og:type" content="@ogType" />
+    <meta property="og:site_name" content="Manuela Ruiz Realty" />
+    <meta property="og:locale" content="@locale" />
+    <meta property="og:locale:alternate" content="@localeAlt" />
+    <meta property="og:title" content="@title" />
+    <meta property="og:description" content="@desc" />
+    <meta property="og:url" content="@canonical" />
+    <meta property="og:image" content="@ogImage" />
+    <meta property="og:image:alt" content="@Lang.T("Manuela Ruiz, bilingual Realtor in Charlotte NC", "Manuela Ruiz, Realtor bilingüe en Charlotte NC")" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@title" />
+    <meta name="twitter:description" content="@desc" />
+    <meta name="twitter:image" content="@ogImage" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @await Html.PartialAsync("_JsonLd")
+    @await Html.PartialAsync("_FaqJsonLd")
+    @await Html.PartialAsync("_BreadcrumbJsonLd")
 </head>
 <body>
     <a class="skip" href="#top">@Lang.T("Skip to content", "Saltar al contenido")</a>

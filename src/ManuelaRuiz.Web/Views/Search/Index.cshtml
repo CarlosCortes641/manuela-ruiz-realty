@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("Search homes in Charlotte NC | Manuela Ruiz", "Buscar casas en Charlotte NC | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Tell Manuela your city, budget, beds and property type. Personalized home search in Charlotte and nearby cities — Spanish or English.",
+        "Cuéntale a Manuela ciudad, presupuesto, habitaciones y tipo de propiedad. Búsqueda personalizada en Charlotte y ciudades cercanas — español o inglés.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("Search homes", "Buscar casas"), "/search")
+    };
     var langValue = Lang.IsSpanish ? "Español" : "English";
 }
 <section class="toolPageIntro">

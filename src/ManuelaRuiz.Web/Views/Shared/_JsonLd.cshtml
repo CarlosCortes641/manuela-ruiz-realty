@@ -1,0 +1,7 @@
+@{
+    var siteUrl = PublicUrl.Base(Context.Request);
+    var jsonLd = SeoJsonLd.AgentGraph(siteUrl);
+}
+<script type="application/ld+json">
+@Html.Raw(jsonLd)
+</script>

@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("Invest in Charlotte real estate | Manuela Ruiz", "Invertir en bienes raíces en Charlotte | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Charlotte investment conversations: cash flow, taxes, HOA and condition — bilingual guidance with Manuela Ruiz Realty.",
+        "Conversaciones de inversión en Charlotte: cash flow, impuestos, HOA y condición — guía bilingüe con Manuela Ruiz Realty.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("Investors", "Inversionistas"), "/investors")
+    };
 }
 <div class="detailPage">
 <section class="detailHero">

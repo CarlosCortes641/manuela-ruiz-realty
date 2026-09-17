@@ -1,0 +1,13 @@
+@{
+    var crumbs = ViewData["Breadcrumbs"] as IReadOnlyList<(string Name, string Path)>;
+    if (crumbs is null || crumbs.Count == 0)
+    {
+        return;
+    }
+
+    var siteUrl = PublicUrl.Base(Context.Request);
+    var json = SeoJsonLd.Breadcrumb(siteUrl, crumbs);
+}
+<script type="application/ld+json">
+@Html.Raw(json)
+</script>

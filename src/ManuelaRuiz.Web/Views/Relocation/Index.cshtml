@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("Relocate to Charlotte in Spanish or English | Manuela Ruiz", "Relocation a Charlotte en español o inglés | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Relocating to Charlotte? Bilingual support for neighborhoods, timeline, schools and the purchase process with Manuela Ruiz Realty.",
+        "¿Te mudas a Charlotte? Apoyo bilingüe en barrios, plazos, escuelas y el proceso de compra con Manuela Ruiz Realty.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        ("Relocation", "/relocation")
+    };
 }
 <div class="detailPage">
 <section class="detailHero">

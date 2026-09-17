@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("Inspections and local resources in Charlotte | Manuela Ruiz", "Inspecciones y recursos locales en Charlotte | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Local inspection and property resources in Charlotte. Coordinate estimates and specialists when due diligence raises questions.",
+        "Inspecciones y recursos locales en Charlotte. Coordina estimados y especialistas cuando el due diligence deja preguntas.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("Resources", "Recursos"), "/partners")
+    };
 }
 <div class="detailPage">
 <section class="detailHero">

@@ -1,5 +1,22 @@
 @{
     ViewData["Title"] = Lang.T("Bilingual real estate knowledge center | Manuela Ruiz", "Centro bilingüe de conocimiento inmobiliario | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Clear bilingual answers on buying, budgeting, new construction, inspections and Charlotte market questions with Manuela Ruiz Realty.",
+        "Respuestas bilingües claras sobre compra, presupuesto, nueva construcción, inspecciones y preguntas del mercado de Charlotte con Manuela Ruiz Realty.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("Knowledge center", "Centro de conocimiento"), "/resources")
+    };
+    ViewData["Faqs"] = new List<(string, string)>
+    {
+        (Lang.T("Can I buy with an ITIN?", "¿Puedo comprar casa con ITIN?"),
+         Lang.T("Some lenders consider ITIN borrowers. Approval is not automatic; documentation, rate, down payment and terms vary.", "Algunos prestamistas consideran compradores con ITIN. No es aprobación automática; documentación, tasa, pago inicial y términos varían.")),
+        (Lang.T("What should I review in a home?", "¿Qué debo revisar en una casa?"),
+         Lang.T("Beyond a general inspection, some findings require independent HVAC, roof, structure, moisture, plumbing or electrical evaluation.", "Además de la inspección general, algunos hallazgos requieren evaluación independiente de HVAC, techo, estructura, humedad, plomería o electricidad.")),
+        (Lang.T("What is Charlotte's minimum price?", "¿Cuál es el precio mínimo en Charlotte?"),
+         Lang.T("There is no stable minimum. Inventory, type, condition and location change; use dated data and a current search.", "No existe un mínimo estable. El inventario, tipo, condición y ubicación cambian; usa datos fechados y una búsqueda actual."))
+    };
 }
 <div class="resourcesPage">
 <article>

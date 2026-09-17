@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("Sold homes and buyer representation | Manuela Ruiz", "Casas vendidas y compradores representados | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Documented buyer and seller representation across Charlotte and nearby cities. Browse recent transactions with Manuela Ruiz.",
+        "Representación documentada de compradores y vendedores en Charlotte y ciudades cercanas. Revisa transacciones recientes con Manuela Ruiz.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("Properties", "Propiedades"), "/sold")
+    };
 }
 <div class="soldPage">
 <section class="soldHero">

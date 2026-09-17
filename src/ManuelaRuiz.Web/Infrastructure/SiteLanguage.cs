@@ -12,7 +12,7 @@ public sealed class SiteLanguage
     }
 
     public bool IsSpanish { get; }
-    public string HtmlLang => IsSpanish ? "es" : "en";
+    public string HtmlLang => IsSpanish ? "es-US" : "en-US";
     public string OtherCode => IsSpanish ? "en" : "es";
     public string ToggleLabel => IsSpanish ? "EN" : "ES";
 

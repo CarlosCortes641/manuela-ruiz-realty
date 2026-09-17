@@ -1,5 +1,13 @@
 @{
     ViewData["Title"] = Lang.T("Charlotte and nearby cities | Service areas | Manuela Ruiz", "Charlotte y ciudades cercanas | Service areas | Manuela Ruiz");
+    ViewData["MetaDescription"] = Lang.T(
+        "Service areas around Charlotte: Concord, Gastonia, Mooresville, Rock Hill and more. Bilingual Realtor Manuela Ruiz.",
+        "Áreas de servicio alrededor de Charlotte: Concord, Gastonia, Mooresville, Rock Hill y más. Realtor bilingüe Manuela Ruiz.");
+    ViewData["Breadcrumbs"] = new List<(string, string)>
+    {
+        (Lang.T("Home", "Inicio"), "/"),
+        (Lang.T("Cities", "Ciudades"), "/areas")
+    };
 }
 <div class="detailPage">
 <section class="detailHero">
